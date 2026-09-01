@@ -1,4 +1,4 @@
-# 🎂 Happy Birthday Kamleshvar · The Passenger Chronicles (2021–2026)
+# 🎂 Happy Birthday Kamleshvar · The Passenger Chronicles (June 2025–2026)
 
 An interactive single-page birthday web archive and community memory vault built by **Arvindhan** for **Kamleshvar's** birthday.
 
@@ -7,7 +7,7 @@ An interactive single-page birthday web archive and community memory vault built
 ## ✨ Features
 
 - 🛵 **The Passenger Chronicles**: Featuring genuine archival footage of Kamleshvar driving while Arvindhan sits in the passenger seat (`/static/videos/bike_ride.mp4`).
-- 💻 **CS Lab Origin & Evolution**: Interactive Python code terminal and archival photos commemorating the journey with CS Teacher **Hema TS ma'am** from Class 11 beginners to self-hosting server masters.
+- 💻 **CS Lab Origin & Evolution**: Interactive Python code terminal and archival photos commemorating the journey with CS Teacher **Hema TS ma'am** from Class 11 in June 2025 to self-hosting server masters today.
 - 🎤 **NextGen 26'1 Event Operations**: Visual retrospective on co-organizing and directing the flagship school event.
 - 📅 **Interactive Birthday Calendar Flip Widget**: 3D desk calendar with realistic flip mechanics, Web Audio page turns, and era milestones.
 - 🕯️ **Interactive Birthday Candles**: 4 blowout candles with realistic flame flicker, wispy smoke particles, puff sound, wish unlocking, and confetti cannons.

@@ -61,8 +61,8 @@ PHOTO_METADATA = {
     },
     "hema_ts_cs_teacher_group.jpg": {
         "title": "With Hema TS (CS Teacher)",
-        "caption": "Group photo with Hema TS ma'am — where our CS journey originally kicked off! 💻👩‍🏫",
-        "date": "Class 11 CS Lab · Special"
+        "caption": "Group photo with Hema TS ma'am — where our CS journey originally kicked off in June 2025! 💻👩‍🏫",
+        "date": "Class 11 CS Lab · June 2025"
     },
     "marina_beach_cycling_first_hangout.jpg": {
         "title": "First Hangout · Marina Beach",

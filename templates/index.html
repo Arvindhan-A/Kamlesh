@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Happy Birthday Kamleshvar · The Passenger Chronicles (2021-2026)</title>
+  <title>Happy Birthday Kamleshvar · The Passenger Chronicles (June 2025–2026)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -460,7 +460,7 @@
       transform: translateY(-2px);
     }
 
-    /* CANDLES & REALISTIC SMOKE ANIMATION */
+    /* CANDLES & 100% RELIABLE EXTINGUISH & SMOKE ANIMATION */
     .candles-container {
       background: var(--bg-surface);
       border: 1px solid var(--border);
@@ -500,13 +500,24 @@
       box-shadow: 0 0 16px rgba(245, 158, 11, 0.9), 0 0 32px rgba(234, 88, 12, 0.4);
       animation: flicker 0.8s infinite alternate ease-in-out;
       transform-origin: center bottom;
-      transition: opacity 0.25s ease, transform 0.25s ease;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      display: block;
     }
 
     @keyframes flicker {
       0% { transform: scale(1) rotate(-2deg); opacity: 0.95; filter: drop-shadow(0 0 4px #f59e0b); }
       50% { transform: scale(1.08, 0.94) rotate(2.5deg); opacity: 1; filter: drop-shadow(0 0 8px #f59e0b); }
       100% { transform: scale(0.95, 1.05) rotate(-1.5deg); opacity: 0.9; filter: drop-shadow(0 0 5px #ea580c); }
+    }
+
+    /* When blown: strictly remove flame animation and hide */
+    .candle-unit.blown .candle-flame {
+      animation: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transform: scale(0) !important;
+      display: none !important;
+      pointer-events: none !important;
     }
 
     .candle-smoke {
@@ -517,12 +528,6 @@
       height: 8px;
       background: rgba(180, 180, 180, 0.6);
       border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .candle-unit.blown .candle-flame {
-      opacity: 0;
-      transform: scale(0.1) translateY(-12px);
       pointer-events: none;
     }
 
@@ -1811,7 +1816,7 @@
         <span>Kamleshvar driving · Arvindhan sitting behind existing</span>
       </div>
       <div style="color: var(--text-tertiary); font-size: 0.8rem;">
-        📍 Class 11 to Class 12 Finale
+        📍 Class 11 (June 2025) to Class 12 Finale (2026)
       </div>
     </div>
 
@@ -1820,7 +1825,7 @@
       <div class="marquee-track">
         <div class="marquee-content">
           <span>🛵 The Passenger Chronicles</span> <span class="dot">✦</span>
-          <span>💻 Class 11 CS Lab to Self-Hosting 2026</span> <span class="dot">✦</span>
+          <span>💻 Class 11 CS Lab (June 2025) to Self-Hosting 2026</span> <span class="dot">✦</span>
           <span>🏸 Rare Badminton Legends</span> <span class="dot">✦</span>
           <span>🏖️ Marina Beach 7:00 AM Sunrise Cycling</span> <span class="dot">✦</span>
           <span>📞 2-Hour Midnight Syllabus Calls</span> <span class="dot">✦</span>
@@ -1829,7 +1834,7 @@
         </div>
         <div class="marquee-content">
           <span>🛵 The Passenger Chronicles</span> <span class="dot">✦</span>
-          <span>💻 Class 11 CS Lab to Self-Hosting 2026</span> <span class="dot">✦</span>
+          <span>💻 Class 11 CS Lab (June 2025) to Self-Hosting 2026</span> <span class="dot">✦</span>
           <span>🏸 Rare Badminton Legends</span> <span class="dot">✦</span>
           <span>🏖️ Marina Beach 7:00 AM Sunrise Cycling</span> <span class="dot">✦</span>
           <span>📞 2-Hour Midnight Syllabus Calls</span> <span class="dot">✦</span>
@@ -1838,7 +1843,7 @@
         </div>
         <div class="marquee-content">
           <span>🛵 The Passenger Chronicles</span> <span class="dot">✦</span>
-          <span>💻 Class 11 CS Lab to Self-Hosting 2026</span> <span class="dot">✦</span>
+          <span>💻 Class 11 CS Lab (June 2025) to Self-Hosting 2026</span> <span class="dot">✦</span>
           <span>🏸 Rare Badminton Legends</span> <span class="dot">✦</span>
           <span>🏖️ Marina Beach 7:00 AM Sunrise Cycling</span> <span class="dot">✦</span>
           <span>📞 2-Hour Midnight Syllabus Calls</span> <span class="dot">✦</span>
@@ -1847,7 +1852,7 @@
         </div>
         <div class="marquee-content">
           <span>🛵 The Passenger Chronicles</span> <span class="dot">✦</span>
-          <span>💻 Class 11 CS Lab to Self-Hosting 2026</span> <span class="dot">✦</span>
+          <span>💻 Class 11 CS Lab (June 2025) to Self-Hosting 2026</span> <span class="dot">✦</span>
           <span>🏸 Rare Badminton Legends</span> <span class="dot">✦</span>
           <span>🏖️ Marina Beach 7:00 AM Sunrise Cycling</span> <span class="dot">✦</span>
           <span>📞 2-Hour Midnight Syllabus Calls</span> <span class="dot">✦</span>
@@ -1862,7 +1867,7 @@
       <span class="hero-eyebrow">✨ Birthday Edition · Made by Arvindhan</span>
       <h1 class="hero-title">Happy Birthday,<br>Kamleshvar.</h1>
       <p class="hero-subtitle">
-        From teaching you the basics in Class 11 Computer Science class to watching you self-host full server clusters today—and sitting behind you on every single bike and scooty ride in between.
+        From teaching you the basics in Class 11 Computer Science class in June 2025 to watching you self-host full server clusters today—and sitting behind you on every single bike and scooty ride in between.
       </p>
 
       <!-- INTERACTIVE BIRTHDAY CALENDAR CARD -->
@@ -1886,7 +1891,7 @@
           </div>
         </div>
         <div class="calendar-hint" id="cal-status-toast">
-          📅 Interactive Date Tear-off · Celebrating 5 Years of Brotherhood (2021-2026)
+          📅 Interactive Date Tear-off · From June 2025 till Now · Class 12 Finale
         </div>
       </div>
 
@@ -1954,12 +1959,12 @@
       </div>
     </section>
 
-    <!-- STORY 1: HOW IT STARTED (CS CLASS 11 ORIGIN) -->
+    <!-- STORY 1: HOW IT STARTED (CS CLASS 11 ORIGIN - JUNE 2025) -->
     <section class="story-section" id="cs-origin">
       <div class="story-tag">Chapter 01 · The Origin Point</div>
       <h2 class="story-title">From Class 11 CS Lab to Self-Hosting Wizardry 💻</h2>
       <div class="story-body">
-        <p>In Class 11, we sat together in Hema TS ma'am's Computer Science class. Back then, coding was new territory for you—you were asking how the syntax worked, debugging basic logic errors, and trying to wrap your head around programming fundamentals. I was glad to teach and guide you through those first concepts.</p>
+        <p>In June 2025, we met and sat together in Hema TS ma'am's Class 11 Computer Science class. Back then, coding was brand new territory for you—you were asking how the syntax worked, debugging basic logic errors, and trying to wrap your head around programming fundamentals. I was glad to teach and guide you through those first concepts.</p>
         <p>Fast forward to today: you literally self-host your own home servers, configure networking clusters, spin up isolated homelabs, and debug infrastructure that would make most college students sweat. Watching that evolution from asking basic questions in Class 11 to becoming a hands-on tech architect has been one of the most rewarding things to witness.</p>
       </div>
 
@@ -1972,10 +1977,10 @@
           <span class="terminal-title">kamleshvar_evolution.py — bash — 80x24</span>
         </div>
         <div class="terminal-body">
-          <div><span class="t-com"># Class 11 CS Class with Hema TS Ma'am</span></div>
+          <div><span class="t-com"># Class 11 CS Class with Hema TS Ma'am (June 2025)</span></div>
           <div><span class="t-kw">class</span> <span class="t-fn">Friendship</span>:</div>
           <div>&nbsp;&nbsp;<span class="t-kw">def</span> <span class="t-fn">__init__</span>(self):</div>
-          <div>&nbsp;&nbsp;&nbsp;&nbsp;self.origin = <span class="t-str">"Class 11 CS Lab"</span></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;self.origin = <span class="t-str">"Class 11 CS Lab · June 2025"</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;self.teacher = <span class="t-str">"Hema TS Ma'am"</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;self.driver = <span class="t-str">"Kamleshvar"</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;self.passenger = <span class="t-str">"Arvindhan"</span></div>
@@ -1991,10 +1996,10 @@
 
       <!-- Photo with Hema TS Ma'am -->
       <div class="feature-photo-card">
-        <img src="{{ url_for('static', filename='photos/hema_ts_cs_teacher_group.jpg') }}" alt="Hema TS CS Class Group Photo" onclick="openLightbox(this.src, 'With Hema TS (CS Teacher) · Where our CS journey originally kicked off!')">
+        <img src="{{ url_for('static', filename='photos/hema_ts_cs_teacher_group.jpg') }}" alt="Hema TS CS Class Group Photo" onclick="openLightbox(this.src, 'With Hema TS (CS Teacher) · Where our CS journey originally kicked off in June 2025!')">
         <div class="media-card-meta">
           <div style="font-weight: 700; font-size: 0.92rem;">With Hema TS (CS Teacher) · Class 11 CS Lab Group Photo</div>
-          <span class="status-badge" style="background: var(--tag-green-bg); color: var(--tag-green-text);">💻 CS CLASS ORIGIN · 2021</span>
+          <span class="status-badge" style="background: var(--tag-green-bg); color: var(--tag-green-text);">💻 CS CLASS ORIGIN · JUNE 2025</span>
         </div>
       </div>
     </section>
@@ -2023,7 +2028,7 @@
       <div class="story-tag">Chapter 04 · The First Official Hangout</div>
       <h2 class="story-title">7:00 AM Marina Beach Sunrise Cycling 🏖️🚲</h2>
       <div class="story-body">
-        <p>Our very first official hangout outside school set the tone for everything. Waking up at dawn, meeting at 7:00 AM, and cycling side-by-side along Marina Beach with the cool morning breeze coming off the Bay of Bengal. It was the first of countless spontaneous rides that defined our years together.</p>
+        <p>Our very first official hangout outside school set the tone for everything. Waking up at dawn, meeting at 7:00 AM, and cycling side-by-side along Marina Beach with the cool morning breeze coming off the Bay of Bengal. It was the first of countless spontaneous rides that defined our days together.</p>
       </div>
 
       <div class="feature-photo-card">
@@ -2041,7 +2046,7 @@
       <h2 class="story-title">The Passenger Seat: 100% Driving vs. Zero GPS 🛵</h2>
       <div class="story-body">
         <p>Let's address the golden rule of our friendship: <strong>Kamleshvar drives 100% of the time.</strong></p>
-        <p>Whether it was scooty rides or bike trips through rush hour traffic, Kamleshvar handled every single turn, pothole, and intersection. Meanwhile, Arvindhan sat behind contributing zero navigational value and 100% moral support. It's a system that has worked without failure for five years.</p>
+        <p>Whether it was scooty rides or bike trips through rush hour traffic, Kamleshvar handled every single turn, pothole, and intersection. Meanwhile, Arvindhan sat behind contributing zero navigational value and 100% moral support. It's a system that has worked without failure since the very beginning.</p>
       </div>
 
       <div class="passenger-exhibit">
@@ -2143,20 +2148,20 @@
       </p>
 
       <div class="tag-cloud-container">
-        <button type="button" class="interactive-tag" onclick="showTagInfo('Class 11', 'Where it all started. CS class, chaotic code debugging, and the beginning of 5 years of adventures.')">🏫 Class 11</button>
-        <button type="button" class="interactive-tag" onclick="showTagInfo('Hema TS CS Class', 'Where our tech mentorship started. From teaching you the basics to watching you build full server homelabs today.')">👩‍🏫 Hema TS Ma\'am</button>
+        <button type="button" class="interactive-tag" onclick="showTagInfo('Class 11', 'Where it all started in June 2025. CS class, chaotic code debugging, and the beginning of our adventures.')">🏫 Class 11 · June 2025</button>
+        <button type="button" class="interactive-tag" onclick="showTagInfo('Hema TS CS Class', 'Where our tech mentorship started in June 2025. From teaching you the basics to watching you build full server homelabs today.')">👩‍🏫 Hema TS Ma\'am</button>
         <button type="button" class="interactive-tag" onclick="showTagInfo('NextGen 26\'1 Event', 'Organizing and pulling off the NextGen 26\'1 event together — backstage hustle and absolute champions on stage.')">🎤 NextGen 26\'1 Event</button>
         <button type="button" class="interactive-tag" onclick="showTagInfo('Marina Beach Hangout', 'Our very first hangout: 7:00 AM cycling along Marina Beach. The beginning of countless spontaneous rides.')">🏖️ Marina Beach Cycling</button>
         <button type="button" class="interactive-tag" onclick="showTagInfo('Hours of Calls', 'Starting with a 2-minute syllabus doubt, ending 2 hours later discussing servers, life theories, and exam stress.')">📞 Hours-Long Calls</button>
         <button type="button" class="interactive-tag" onclick="showTagInfo('Late Night Study', 'Fighting sleep before exams, sharing notes, and keeping each other awake with random inside jokes.')">🌙 Late Night Studies</button>
-        <button type="button" class="interactive-tag" onclick="showTagInfo('Beginner to Self-Hosting', 'From asking how basic syntax works to self-hosting complete server clusters and homelabs. Immense growth.')">💻 Beginner → Self-Hosting</button>
+        <button type="button" class="interactive-tag" onclick="showTagInfo('Beginner to Self-Hosting', 'From asking how basic syntax works in June 2025 to self-hosting complete server clusters today. Immense growth.')">💻 Beginner → Self-Hosting</button>
         <button type="button" class="interactive-tag" onclick="showTagInfo('Random Tech Discussions', 'Turning simple CS concepts into full-blown architecture debates that lasted well past midnight.')">⚡ Random Tech Discussions</button>
         <button type="button" class="interactive-tag" onclick="showTagInfo('Rare Badminton Games', 'We played on rare occasions, and every single match was pure comedic chaos from start to finish.')">🏸 Rare Badminton Games</button>
         <button type="button" class="interactive-tag" onclick="showTagInfo('Bike & Scooty Rides', 'Cruising through Chennai traffic with zero GPS because Kamleshvar somehow knew every shortcut.')">🛵 Bike &amp; Scooty Rides</button>
         <button type="button" class="interactive-tag" onclick="showTagInfo('Passenger Seat', 'Arvindhan\'s permanent designated spot: sitting behind, holding on, providing 100% moral support.')">🪑 Passenger Seat</button>
         <button type="button" class="interactive-tag" onclick="showTagInfo('Class 12 Ending', 'Only a few moments left of our school life. Moving to colleges soon, but this brotherhood stays unchanged.')">⏳ Class 12 Ending</button>
         <button type="button" class="interactive-tag" onclick="showTagInfo('Bro...', 'The universal opening to every single midnight crisis, tech doubt, or spontaneous ride plan.')">💬 &quot;Bro...&quot;</button>
-        <button type="button" class="interactive-tag" onclick="showTagInfo('Golden Memories', 'Years of friendship that turned two classmates into brothers for life.')">✨ A Lot of Memories</button>
+        <button type="button" class="interactive-tag" onclick="showTagInfo('Golden Memories', 'Memories from June 2025 till now that turned two classmates into brothers for life.')">✨ A Lot of Memories</button>
       </div>
 
       <div class="tag-toast" id="tag-toast-display">
@@ -2167,7 +2172,7 @@
     <!-- STORY 9: THE FRIENDSHIP METRICS TABLE -->
     <section class="story-section" id="metrics">
       <div class="story-tag">Chapter 09 · Analytical Breakdown</div>
-      <h2 class="story-title">Official Friendship Audit (2021-2026) 📊</h2>
+      <h2 class="story-title">Official Friendship Audit (June 2025–2026) 📊</h2>
 
       <div class="metric-table-wrap">
         <table class="metric-table">
@@ -2180,7 +2185,7 @@
           <tbody>
             <tr>
               <td class="metric-label">CS Evolution</td>
-              <td class="metric-value" style="color: var(--tag-green-text);">Beginner in Class 11 → Self-Hosting Pro (+1000%) 📈</td>
+              <td class="metric-value" style="color: var(--tag-green-text);">Beginner in June 2025 → Self-Hosting Pro (+1000%) 📈</td>
             </tr>
             <tr>
               <td class="metric-label">First Hangout</td>
@@ -2226,14 +2231,14 @@
     <!-- STORY 10: THE JOURNEY TIMELINE -->
     <section class="story-section" id="timeline">
       <div class="story-tag">Chapter 10 · The Progression</div>
-      <h2 class="story-title">Five Years of Unforgettable Milestones ⏳</h2>
+      <h2 class="story-title">Milestones from June 2025 till Now ⏳</h2>
 
       <div class="timeline-wrap">
         <div class="timeline-node">
           <div class="timeline-dot"></div>
-          <div class="timeline-time">CLASS 11 · 2021</div>
+          <div class="timeline-time">CLASS 11 · JUNE 2025</div>
           <div class="timeline-title">The First Python Script with Hema TS Ma'am 💻</div>
-          <div class="timeline-desc">Sitting in the computer lab, teaching you basic loops and syntax. The spark that ignited 5 years of homelab madness.</div>
+          <div class="timeline-desc">Sitting in the computer lab in June 2025, teaching you basic loops and syntax. The spark that ignited our homelab madness.</div>
         </div>
 
         <div class="timeline-node">
@@ -2516,7 +2521,7 @@
       <div id="envelope-sealed">
         <!-- Postage Stamps Row -->
         <div class="stamps-row">
-          <div class="postage-stamp">🏫 Hema TS CS Lab · 2021</div>
+          <div class="postage-stamp">🏫 Hema TS CS Lab · June 2025</div>
           <div class="postage-stamp">🛵 Designated Driver 100%</div>
           <div class="postage-stamp">🏖️ Marina Beach 07:00 AM</div>
           <div class="postage-stamp">⏳ Class 12 Grand Finale</div>
@@ -2558,16 +2563,16 @@
           </div>
           <div>
             <div class="letter-meta-label">ERA &amp; DATE</div>
-            <div class="letter-meta-val">Class 11 to Class 12 Finale · 2026 ⏳</div>
+            <div class="letter-meta-val">June 2025 to Class 12 Finale · 2026 ⏳</div>
           </div>
         </div>
 
         <div class="story-body" style="font-size: 1.08rem; line-height: 1.85;">
           <p>Kamleshvar,</p>
 
-          <p>If you told me back in Class 11 when we were sitting in Hema TS ma'am's CS class that I'd one day build an entire website dedicated to our friendship, I probably would have laughed.</p>
+          <p>If you told me back in June 2025 when we were sitting in Hema TS ma'am's CS class that I'd one day build an entire website dedicated to our friendship, I probably would have laughed.</p>
 
-          <p>Back then, you were just starting out with CS—asking questions, trying to wrap your head around how code worked, and figuring out the basics. I helped you take those first few steps. And watching you evolve from that beginner into someone who today literally self-hosts server clusters, builds homelabs, and solves complex tech setups on your own... that's easily one of the coolest things I've witnessed over these years.</p>
+          <p>Back then, you were just starting out with CS—asking questions, trying to wrap your head around how code worked, and figuring out the basics. I helped you take those first few steps. And watching you evolve from that beginner into someone who today literally self-hosts server clusters, builds homelabs, and solves complex tech setups on your own... that's easily one of the coolest things I've witnessed.</p>
 
           <p>Then came the late-night calls. How many times did one of our phone calls start with: <em>“Bro, just a quick 2-minute syllabus question...”</em> and then suddenly it's 2:30 AM, and we're talking about server architectures, complaining about exams, debating wild life theories, or just laughing at something utterly stupid? Those midnight study sessions weren't just exam prep; they were where our brotherhood got locked in.</p>
 
@@ -2611,7 +2616,7 @@
   <footer class="site-footer">
     <div class="container">
       <p class="footer-copy">Built with pride &amp; zero driving skills by Arvindhan for Kamleshvar's Birthday</p>
-      <p class="footer-note">Class 11 → Class 12 &amp; Forever · A Random Corner of the Web · 2026</p>
+      <p class="footer-note">Class 11 (June 2025) → Class 12 &amp; Forever · A Random Corner of the Web · 2026</p>
       <div style="margin-top: 1.25rem;">
         <a href="/admin" class="btn btn-subtle" style="font-size: 0.78rem; padding: 0.35rem 0.85rem;">⚙️ Admin Studio</a>
       </div>
@@ -2645,7 +2650,7 @@
         <div class="a4-inner-border">
           <!-- Header -->
           <div class="a4-header-top">
-            <div class="a4-dispatch-tag">✦ OFFICIAL ARCHIVAL KEEPSAKE · CLASS 11 TO CLASS 12 FINALE · 2021-2026 ✦</div>
+            <div class="a4-dispatch-tag">✦ OFFICIAL ARCHIVAL KEEPSAKE · JUNE 2025 TO CLASS 12 FINALE · 2026 ✦</div>
             <h1 class="a4-title">HAPPY BIRTHDAY, KAMLESHVAR! 🎂</h1>
             <div class="a4-sub">The Passenger Chronicles · Curated with Pride &amp; Brotherhood by Arvindhan</div>
           </div>
@@ -2702,7 +2707,7 @@
           <div class="a4-story-grid">
             <div class="a4-story-box">
               <div class="a4-story-tag">1. The CS Origin in Hema TS Lab</div>
-              <div class="a4-story-txt">Sitting in the CS lab in Class 11, figuring out code basics together. Watching you turn from a beginner into a wizard who now self-hosts full servers is unforgettable.</div>
+              <div class="a4-story-txt">Sitting in the CS lab in Class 11 (June 2025), figuring out code basics together. Watching you turn from a beginner into a wizard who now self-hosts full servers is unforgettable.</div>
             </div>
             <div class="a4-story-box">
               <div class="a4-story-tag">2. Midnight Syllabus &amp; Tech Calls</div>
@@ -2720,7 +2725,7 @@
 
           <!-- The Condensed Grand Letter -->
           <div class="a4-letter-body">
-            <p><strong>Dear Kamleshvar,</strong> From Class 11 CS lab basics to rare chaotic badminton matches, hours of midnight calls, and running flagship school events together, these years have built memories that will last a lifetime. Soon we will both move on to colleges and different roads, but school life ending does not change a single thing between us. The late-night calls will keep happening, the tech debates will continue, and whenever we are on a ride, you will always be the driver.</p>
+            <p><strong>Dear Kamleshvar,</strong> From Class 11 CS lab basics in June 2025 to rare chaotic badminton matches, hours of midnight calls, and running flagship school events together, these memories will last a lifetime. Soon we will both move on to colleges and different roads, but school life ending does not change a single thing between us. The late-night calls will keep happening, the tech debates will continue, and whenever we are on a ride, you will always be the driver.</p>
 
             <div class="a4-punchline-box">
               “You spent years in the driver’s seat steering through every road and midnight turn we ever took—while I sat behind contributing zero GPS and 100% moral support. Consider this archive Arvindhan’s way of finally taking the wheel. Happy Birthday, Kamleshvar!”
@@ -2745,7 +2750,7 @@
 
             <div style="text-align: right;">
               <div style="font-family: 'Space Mono', monospace; font-size: 7pt; color: #b45309; font-weight: 700;">⚜️ VERIFIED LIFELONG ARCHIVE</div>
-              <div style="font-size: 6.8pt; color: #9e8975;">Class 11 → Class 12 &amp; Beyond · 2026</div>
+              <div style="font-size: 6.8pt; color: #9e8975;">June 2025 → Class 12 Finale &amp; Beyond · 2026</div>
             </div>
           </div>
         </div>
@@ -3079,7 +3084,7 @@
     }
 
     /* =========================================================
-       4. INTERACTIVE BIRTHDAY CALENDAR ANIMATION
+       4. INTERACTIVE BIRTHDAY CALENDAR ANIMATION (JUNE 2025 ORIGIN)
        ========================================================= */
     let calendarStateIndex = 0;
     const calendarStates = [
@@ -3092,17 +3097,17 @@
       },
       {
         month: 'CLASS 11 ERA',
-        day: '2021',
+        day: 'JUNE 2025',
         label: 'CS LAB ORIGIN 💻',
         footer: 'Hema TS CS Class · Tap again',
-        toast: '🏫 Class 11 CS Lab · Where our coding journey & friendship began!'
+        toast: '🏫 June 2025 CS Lab · Where our coding journey & friendship began!'
       },
       {
         month: 'GRAND FINALE',
         day: '2026',
         label: 'BROTHERS FOREVER 🥂',
         footer: 'Class 12 to Eternity · Tap again',
-        toast: '🛵 The Passenger Chronicles · 5 Years of Brotherhood & Beyond!'
+        toast: '🛵 The Passenger Chronicles · Brotherhood from June 2025 to Eternity!'
       }
     ];
 
@@ -3127,12 +3132,22 @@
     }
 
     /* =========================================================
-       5. INTERACTIVE CANDLE BLOWOUT & SMOKE
+       5. INTERACTIVE CANDLE BLOWOUT & 100% FLAME EXTINGUISH
        ========================================================= */
     let blownCount = 0;
     function blowCandle(el, wish) {
       if (!el.classList.contains('blown')) {
         el.classList.add('blown');
+
+        // Explicitly remove animation and hide flame element immediately
+        const flame = el.querySelector('.candle-flame');
+        if (flame) {
+          flame.style.display = 'none';
+          flame.style.animation = 'none';
+          flame.style.opacity = '0';
+          flame.style.visibility = 'hidden';
+        }
+
         blownCount++;
         SoundEngine.puff();
         triggerConfetti(0.5, 0.45);
@@ -3150,7 +3165,16 @@
     }
 
     function relightCandles() {
-      document.querySelectorAll('.candle-unit').forEach(c => c.classList.remove('blown'));
+      document.querySelectorAll('.candle-unit').forEach(c => {
+        c.classList.remove('blown');
+        const flame = c.querySelector('.candle-flame');
+        if (flame) {
+          flame.style.display = 'block';
+          flame.style.animation = 'flicker 0.8s infinite alternate ease-in-out';
+          flame.style.opacity = '';
+          flame.style.visibility = '';
+        }
+      });
       blownCount = 0;
       document.getElementById('candle-wish-chip').textContent = 'All candles relit! Click any flame to blow it out.';
       SoundEngine.sparkle();
