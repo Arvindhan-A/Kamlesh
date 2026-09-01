@@ -27,7 +27,7 @@ ALLOWED_IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".gif", ".webp"}
 ALLOWED_VIDEO_EXTS = {".mp4", ".mov", ".webm", ".mkv"}
 
 DEFAULT_SETTINGS = {
-    "qr_code_url": "http://192.168.1.100:5000",
+    "qr_code_url": "https://kamlesh.gaiasentinel.online",
     "site_title": "Happy Birthday Kammu 🎂",
     "admin_password": os.environ.get("ADMIN_PASSWORD", "arvindhan")
 }
