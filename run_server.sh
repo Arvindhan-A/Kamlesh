@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 # =========================================================
-# Run Script for Kamleshvar's Birthday Archive (Raspberry Pi 5 Ready)
-# Exposes as a single port (default 5000)
+# Run Script for Kamleshvar's Birthday Archive
+# Supports custom PORT and HOST environment variables
 # =========================================================
 
 set -e
 
-PORT="${PORT:-5000}"
+PORT="${PORT:-2023}"
 HOST="${HOST:-0.0.0.0}"
-WORKERS="${WORKERS:-4}"
+WORKERS="${WORKERS:-2}"
 
 echo "========================================================"
-echo "🎂 Starting Kamleshvar's Birthday Archive Server"
-echo "📍 Host: http://${HOST}:${PORT}"
+echo "🎂 Starting Kamleshvar Birthday Archive Server"
+echo "📍 Address: http://${HOST}:${PORT}"
 echo "========================================================"
 
 # Activate virtual environment if present
@@ -22,7 +22,7 @@ elif [ -d "venv" ]; then
     source venv/bin/activate
 fi
 
-# Run with Gunicorn if installed, else fallback to Flask's built-in WSGI server
+# Run with Gunicorn if installed, else fallback to Flask's built-in server
 if command -v gunicorn &> /dev/null; then
     echo "⚡ Running with Gunicorn (${WORKERS} workers) on ${HOST}:${PORT}..."
     exec gunicorn --workers "${WORKERS}" --bind "${HOST}:${PORT}" --timeout 120 main:app

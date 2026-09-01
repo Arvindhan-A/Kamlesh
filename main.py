@@ -7,6 +7,7 @@ from flask import Flask, render_template, request, jsonify, session, redirect, u
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
+application = app  # WSGI application alias
 app.secret_key = os.environ.get("SECRET_KEY", "kamleshvar_birthday_key_2026_arvindhan")
 app.config["MAX_CONTENT_LENGTH"] = 60 * 1024 * 1024  # 60MB max upload
 
@@ -373,8 +374,15 @@ def admin_delete_story(story_id):
 
 
 if __name__ == "__main__":
+    import sys
     host = os.environ.get("HOST", "0.0.0.0")
-    port = int(os.environ.get("PORT", 5000))
+    port_str = os.environ.get("PORT", "2023")
+    if len(sys.argv) > 1 and sys.argv[1].isdigit():
+        port_str = sys.argv[1]
+    try:
+        port = int(port_str)
+    except ValueError:
+        port = 2023
     debug = os.environ.get("FLASK_DEBUG", "false").lower() in ("true", "1", "yes")
     print(f"🚀 Starting Kamleshvar Birthday Server on http://{host}:{port}")
     app.run(host=host, port=port, debug=debug)
