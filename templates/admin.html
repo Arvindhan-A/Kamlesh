@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Admin Studio · Settings &amp; Story Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-canvas: #faf7f2;
+      --bg-surface: #ffffff;
+      --bg-surface-subtle: #f4ede2;
+      --text-main: #2b2118;
+      --text-muted: #6b5847;
+      --text-tertiary: #9e8975;
+      --accent: #b45309;
+      --accent-hover: #92400e;
+      --accent-subtle: #fef3c7;
+      --border: #e6dac6;
+      --tag-rose-bg: #fce8e6;
+      --tag-rose-text: #a82a24;
+      --tag-green-bg: #e8f3ea;
+      --tag-green-text: #205c3b;
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-pill: 9999px;
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --shadow-sm: 0 1px 3px rgba(43, 33, 24, 0.04);
+      --shadow-md: 0 4px 16px rgba(43, 33, 24, 0.06);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: var(--bg-canvas);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 1.5rem 1rem 4rem;
+    }
+
+    .admin-container {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .top-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-main);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.15rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .btn-solid {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .btn-solid:hover {
+      background: var(--accent-hover);
+    }
+
+    .btn-subtle {
+      background: var(--bg-surface-subtle);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+    }
+
+    .btn-subtle:hover {
+      border-color: var(--accent);
+      background: #ffffff;
+    }
+
+    .btn-danger {
+      background: var(--tag-rose-bg);
+      color: var(--tag-rose-text);
+      border: 1px solid rgba(168, 42, 36, 0.2);
+    }
+
+    .btn-danger:hover {
+      background: #ef4444;
+      color: #fff;
+    }
+
+    /* Login Card */
+    .login-box {
+      max-width: 420px;
+      margin: 4rem auto;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 2.25rem 2rem;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+    }
+
+    .input-field, .textarea-field {
+      width: 100%;
+      background: var(--bg-canvas);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.7rem 0.9rem;
+      font-family: var(--font-main);
+      font-size: 0.9rem;
+      color: var(--text-main);
+      outline: none;
+      margin-top: 0.35rem;
+    }
+
+    .input-field:focus, .textarea-field:focus {
+      border-color: var(--accent);
+      background: #ffffff;
+    }
+
+    .form-group {
+      text-align: left;
+      margin-bottom: 1.15rem;
+    }
+
+    .form-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* Settings Box */
+    .settings-panel {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .settings-panel-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .qr-preview-box {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      background: var(--bg-surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .qr-img {
+      width: 120px;
+      height: 120px;
+      background: #fff;
+      padding: 6px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    /* Admin Story Cards */
+    .story-card-admin {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .story-admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px dashed var(--border);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .story-time-tag {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+    }
+
+    .media-thumb {
+      max-width: 100%;
+      max-height: 200px;
+      border-radius: 8px;
+      margin: 0.75rem 0;
+      object-fit: cover;
+      display: block;
+    }
+
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-chip {
+      background: var(--bg-surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .stat-lbl {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: #10b981;
+      color: #fff;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 0.88rem;
+      box-shadow: var(--shadow-md);
+      display: none;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="admin-container">
+    {% if not is_admin %}
+    <!-- Login Form -->
+    <div class="login-box">
+      <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">⚙️</div>
+      <h1 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 0.35rem;">Arvindhan's Admin Studio</h1>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Enter password to manage birthday stories, attachments &amp; A4 QR settings.</p>
+
+      {% if error %}
+      <div style="background: var(--tag-rose-bg); color: var(--tag-rose-text); padding: 0.6rem; border-radius: 8px; font-size: 0.85rem; margin-bottom: 1rem; font-weight: 700;">
+        {{ error }}
+      </div>
+      {% endif %}
+
+      <form method="POST" action="/admin">
+        <div class="form-group">
+          <label class="form-label">Admin Password</label>
+          <input type="password" name="password" class="input-field" placeholder="Enter admin password (default: arvindhan)" required autofocus>
+        </div>
+        <button type="submit" class="btn btn-solid" style="width: 100%; justify-content: center; padding: 0.75rem; margin-top: 0.5rem;">
+          Unlock Dashboard 🔓
+        </button>
+      </form>
+
+      <div style="margin-top: 1.5rem;">
+        <a href="/" style="font-size: 0.82rem; color: var(--text-muted); text-decoration: none; font-weight: 600;">&larr; Back to Main Website</a>
+      </div>
+    </div>
+    {% else %}
+
+    <!-- Admin Dashboard -->
+    <div class="top-bar">
+      <div class="top-title">
+        <span>⚙️</span>
+        <span>Arvindhan's Control Studio</span>
+      </div>
+
+      <div class="nav-actions">
+        <a href="/" class="btn btn-subtle">&larr; View Live Website</a>
+        <a href="/admin/logout" class="btn btn-danger">Log Out</a>
+      </div>
+    </div>
+
+    <!-- Quick Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat-chip">
+        <div class="stat-num">{{ stories|length }}</div>
+        <div class="stat-lbl">Published Stories</div>
+      </div>
+      <div class="stat-chip">
+        <div class="stat-num">
+          {% set count = namespace(media=0) %}
+          {% for s in stories %}
+            {% if s.media_url %}{% set count.media = count.media + 1 %}{% endif %}
+          {% endfor %}
+          {{ count.media }}
+        </div>
+        <div class="stat-lbl">Attachments</div>
+      </div>
+      <div class="stat-chip">
+        <div class="stat-num">
+          {% set count = namespace(rx=0) %}
+          {% for s in stories %}
+            {% if s.reactions %}
+              {% set count.rx = count.rx + (s.reactions.heart or 0) + (s.reactions.fire or 0) + (s.reactions.salute or 0) %}
+            {% endif %}
+          {% endfor %}
+          {{ count.rx }}
+        </div>
+        <div class="stat-lbl">Total Reactions</div>
+      </div>
+    </div>
+
+    <!-- SETTINGS PANEL (A4 QR CODE TARGET URL CONFIGURATION) -->
+    <div class="settings-panel">
+      <div class="settings-panel-title">
+        <span>📲</span>
+        <span>A4 Keepsake Card · Dynamic QR Code Configuration</span>
+      </div>
+      <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+        When friends or Kamleshvar scan the QR code printed on the A4 Keepsake Card, they will be directed to this exact URL (e.g. your Raspberry Pi 5 IP or custom domain):
+      </p>
+
+      <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
+        <div class="form-group" style="margin-bottom: 0;">
+          <label class="form-label" for="qr-url-input">QR Code Target URL / Pi 5 Address *</label>
+          <input type="url" id="qr-url-input" class="input-field" value="{{ qr_code_url }}" placeholder="e.g. http://192.168.1.100:5000 or https://kamlesh.yourdomain.com" oninput="updateQrPreview()">
+        </div>
+      </div>
+
+      <div class="qr-preview-box">
+        <img id="qr-preview-img" class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ qr_code_url|urlencode }}" alt="Live QR Preview">
+        <div>
+          <div style="font-weight: 800; font-size: 0.95rem; color: var(--text-main);">Live Scannable QR Preview</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin: 0.25rem 0 0.75rem;">
+            Pointing to: <strong id="qr-preview-text" style="color: var(--accent); font-family: var(--font-mono);">{{ qr_code_url }}</strong>
+          </div>
+          <button type="button" class="btn btn-solid" onclick="saveSettings()">
+            Save QR Code Settings 💾
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STORY MANAGEMENT LIST -->
+    <h2 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 1rem;">Manage Guestbook Memories ({{ stories|length }})</h2>
+
+    {% if stories %}
+      {% for s in stories %}
+      <div class="story-card-admin" id="card-{{ s.id }}">
+        <div class="story-admin-header">
+          <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+            <input type="text" id="avatar-{{ s.id }}" value="{{ s.avatar or '🎂' }}" style="width: 50px; text-align: center; font-size: 1.1rem;" class="input-field" placeholder="Icon">
+            <input type="text" id="author-{{ s.id }}" value="{{ s.author }}" class="input-field" style="font-weight: 700; width: 170px;">
+            <input type="text" id="role-{{ s.id }}" value="{{ s.role }}" class="input-field" placeholder="Role / Connection" style="width: 170px;">
+          </div>
+          <span class="story-time-tag">{{ s.created_at }}</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Story Title</label>
+          <input type="text" id="title-{{ s.id }}" value="{{ s.title or '' }}" class="input-field" placeholder="Story Title">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Memory / Story Text</label>
+          <textarea id="text-{{ s.id }}" class="textarea-field" rows="4">{{ s.text }}</textarea>
+        </div>
+
+        {% if s.media_url %}
+        <div style="margin-bottom: 1rem;">
+          <span class="form-label" style="display: block; margin-bottom: 0.35rem;">Attachment:</span>
+          {% if s.media_type == 'image' %}
+          <img src="{{ s.media_url }}" alt="Attachment" class="media-thumb">
+          {% elif s.media_type == 'video' %}
+          <video src="{{ s.media_url }}" controls class="media-thumb" style="max-height: 220px;"></video>
+          {% endif %}
+          <span style="font-size: 0.75rem; color: var(--text-tertiary); font-family: var(--font-mono);">{{ s.media_url }}</span>
+        </div>
+        {% endif %}
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 0.5rem;">
+          <div style="font-size: 0.8rem; color: var(--text-muted);">
+            ❤️ {{ s.reactions.heart if s.reactions else 0 }} · 🔥 {{ s.reactions.fire if s.reactions else 0 }} · 🫡 {{ s.reactions.salute if s.reactions else 0 }}
+          </div>
+          <div style="display: flex; gap: 0.5rem;">
+            <button type="button" class="btn btn-solid" onclick="saveStory('{{ s.id }}')">
+              Save Story Edits
+            </button>
+            <button type="button" class="btn btn-danger" onclick="deleteStory('{{ s.id }}')">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    {% else %}
+      <div style="text-align: center; padding: 3rem; background: #fff; border-radius: 12px; border: 1px dashed var(--border);">
+        <p style="color: var(--text-muted);">No stories published yet.</p>
+      </div>
+    {% endif %}
+
+    {% endif %}
+  </div>
+
+  <div id="toast" class="toast">Changes saved successfully!</div>
+
+  <script>
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.style.display = 'block';
+      setTimeout(() => { t.style.display = 'none'; }, 2600);
+    }
+
+    let qrDebounceTimer = null;
+    function updateQrPreview() {
+      clearTimeout(qrDebounceTimer);
+      qrDebounceTimer = setTimeout(() => {
+        const url = document.getElementById('qr-url-input').value.trim() || 'http://192.168.1.100:5000';
+        document.getElementById('qr-preview-text').textContent = url;
+        document.getElementById('qr-preview-img').src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(url)}`;
+      }, 300);
+    }
+
+    async function saveSettings() {
+      const qr_code_url = document.getElementById('qr-url-input').value.trim();
+      if (!qr_code_url) {
+        alert('Please enter a valid URL');
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/admin/settings', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ qr_code_url })
+        });
+        const data = await res.json();
+        if (data.success) {
+          showToast('✅ A4 QR Code settings updated and saved!');
+        } else {
+          alert(data.error || 'Failed to update settings.');
+        }
+      } catch (err) {
+        alert('Error saving settings.');
+      }
+    }
+
+    async function saveStory(id) {
+      const author = document.getElementById(`author-${id}`).value.trim();
+      const role = document.getElementById(`role-${id}`).value.trim();
+      const title = document.getElementById(`title-${id}`).value.trim();
+      const text = document.getElementById(`text-${id}`).value.trim();
+      const avatar = document.getElementById(`avatar-${id}`).value.trim();
+
+      if (!author || !text) {
+        alert('Author and Text cannot be empty!');
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/admin/stories/${id}/edit`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ author, role, title, text, avatar })
+        });
+        const data = await res.json();
+        if (data.success) {
+          showToast('Story edits saved successfully!');
+        } else {
+          alert(data.error || 'Failed to update story.');
+        }
+      } catch (err) {
+        alert('Error updating story.');
+      }
+    }
+
+    async function deleteStory(id) {
+      if (!confirm('Are you sure you want to permanently delete this story and its media?')) {
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/admin/stories/${id}/delete`, {
+          method: 'POST'
+        });
+        const data = await res.json();
+        if (data.success) {
+          const card = document.getElementById(`card-${id}`);
+          if (card) card.remove();
+          showToast('Story deleted permanently.');
+        } else {
+          alert(data.error || 'Failed to delete story.');
+        }
+      } catch (err) {
+        alert('Error deleting story.');
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,3519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Happy Birthday Kamleshvar · The Passenger Chronicles (2021-2026)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* =========================================================
+       DESIGN SYSTEM & THEME TOKENS: WARM LATTE (SOLO PALETTE)
+       ========================================================= */
+    :root {
+      --bg-canvas: #faf7f2;
+      --bg-surface: #ffffff;
+      --bg-surface-subtle: #f4ede2;
+      --text-main: #2b2118;
+      --text-muted: #6b5847;
+      --text-tertiary: #9e8975;
+      --accent: #b45309;
+      --accent-hover: #92400e;
+      --accent-subtle: #fef3c7;
+      --border: #e6dac6;
+      --border-subtle: #f0e6d6;
+      --tag-rose-bg: #fce8e6;
+      --tag-rose-text: #a82a24;
+      --tag-green-bg: #e8f3ea;
+      --tag-green-text: #205c3b;
+      --tag-amber-bg: #fef3c7;
+      --tag-amber-text: #b45309;
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 32px;
+      --radius-pill: 9999px;
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --font-hand: 'Kalam', cursive;
+      --shadow-sm: 0 1px 3px rgba(43, 33, 24, 0.04);
+      --shadow-md: 0 4px 20px rgba(43, 33, 24, 0.06);
+      --shadow-lg: 0 12px 40px rgba(43, 33, 24, 0.09);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      line-height: 1.65;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 clamp(1rem, 4vw, 2rem);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* CUSTOM CURSOR (DESKTOP) */
+    .cursor-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.08s ease-out, opacity 0.2s ease;
+    }
+
+    .cursor-ring {
+      width: 34px;
+      height: 34px;
+      border: 1.5px solid var(--accent);
+      border-radius: 50%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 99998;
+      transform: translate(-50%, -50%);
+      transition: width 0.2s ease, height 0.2s ease, transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, border-color 0.2s ease;
+      opacity: 0.6;
+    }
+
+    @media (hover: none) or (pointer: coarse) {
+      .cursor-dot, .cursor-ring { display: none !important; }
+    }
+
+    /* TOP NAVIGATION */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(250, 247, 242, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.85rem 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .sound-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.85rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .sound-toggle-btn:hover {
+      border-color: var(--accent);
+      color: var(--text-main);
+      transform: translateY(-1px);
+    }
+
+    /* TRANSIT STATUS */
+    .status-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 1.15rem;
+      margin: 1.25rem 0 0.5rem;
+      background: var(--bg-surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.22rem 0.7rem;
+      background: var(--accent-subtle);
+      color: var(--accent);
+      border-radius: var(--radius-pill);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* RUNNING MARQUEE BANNERS */
+    .marquee-banner {
+      width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+      background: var(--bg-surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 0.7rem 0;
+      margin: 1.5rem 0;
+      mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,1) 4%, rgba(0,0,0,1) 96%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,1) 4%, rgba(0,0,0,1) 96%, transparent 100%);
+      position: relative;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeScroll 28s linear infinite;
+    }
+
+    .marquee-banner:hover .marquee-track {
+      animation-play-state: paused;
+    }
+
+    .marquee-content {
+      display: flex;
+      align-items: center;
+      gap: 2.25rem;
+      padding: 0 1.25rem;
+      white-space: nowrap;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+    }
+
+    .marquee-content .dot {
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* INTERACTIVE BIRTHDAY CALENDAR FLIP / TEAR WIDGET */
+    .calendar-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 1.75rem auto 2.5rem;
+      perspective: 1000px;
+    }
+
+    .calendar-card {
+      width: 220px;
+      background: #ffffff;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 25px rgba(43, 33, 24, 0.08);
+      overflow: hidden;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .calendar-card:hover {
+      transform: translateY(-4px) rotate(-1deg);
+      box-shadow: 0 16px 36px rgba(43, 33, 24, 0.12);
+    }
+
+    .calendar-card.flipping {
+      animation: calendarFlip 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes calendarFlip {
+      0% { transform: rotateY(0deg) scale(1); }
+      50% { transform: rotateY(90deg) scale(0.92); }
+      100% { transform: rotateY(0deg) scale(1); }
+    }
+
+    .calendar-header {
+      background: linear-gradient(135deg, #b45309, #92400e);
+      color: #ffffff;
+      padding: 0.65rem 0.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .calendar-rings {
+      position: absolute;
+      top: -6px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-around;
+      padding: 0 24px;
+    }
+
+    .calendar-ring-notch {
+      width: 9px;
+      height: 12px;
+      background: #2b2118;
+      border-radius: 4px;
+      border: 1.5px solid #d4c5b0;
+    }
+
+    .calendar-month {
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .calendar-body {
+      padding: 1.25rem 1rem 0.85rem;
+      text-align: center;
+      background: #fdfaf6;
+    }
+
+    .calendar-day-num {
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--text-main);
+      letter-spacing: -0.04em;
+      font-family: var(--font-main);
+      transition: color 0.2s ease;
+    }
+
+    .calendar-day-name {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.25rem;
+    }
+
+    .calendar-footer {
+      border-top: 1px dashed var(--border);
+      padding: 0.55rem 0.75rem;
+      background: var(--bg-surface-subtle);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+    }
+
+    .calendar-hint {
+      font-size: 0.78rem;
+      color: var(--text-tertiary);
+      margin-top: 0.5rem;
+      font-weight: 600;
+    }
+
+    /* HERO SECTION */
+    .hero-box {
+      text-align: center;
+      padding: clamp(2.5rem, 7vw, 4.5rem) 1rem 2.5rem;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.95rem;
+      background: var(--tag-amber-bg);
+      color: var(--tag-amber-text);
+      border-radius: var(--radius-pill);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 6.5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 660px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+
+    .stat-pills-row {
+      display: flex;
+      justify-content: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .stat-pill {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      padding: 0.45rem 1rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.4rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-solid {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(180, 83, 9, 0.25);
+    }
+
+    .btn-solid:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(180, 83, 9, 0.35);
+    }
+
+    .btn-subtle {
+      background: var(--bg-surface);
+      color: var(--text-main);
+      border-color: var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-subtle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--bg-surface-subtle);
+      transform: translateY(-2px);
+    }
+
+    /* CANDLES & REALISTIC SMOKE ANIMATION */
+    .candles-container {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.75rem 1.25rem;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 3.5rem;
+      text-align: center;
+    }
+
+    .candles-row {
+      display: flex;
+      justify-content: center;
+      gap: clamp(1.2rem, 4vw, 2.5rem);
+      margin: 1.5rem 0 1rem;
+    }
+
+    .candle-unit {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.2s ease;
+      user-select: none;
+      position: relative;
+    }
+
+    .candle-unit:hover {
+      transform: scale(1.08);
+    }
+
+    .candle-flame {
+      width: 14px;
+      height: 24px;
+      background: radial-gradient(ellipse at 50% 80%, #ffffff 0%, #fef08a 25%, #f59e0b 60%, #ea580c 100%);
+      border-radius: 50% 50% 35% 35%;
+      box-shadow: 0 0 16px rgba(245, 158, 11, 0.9), 0 0 32px rgba(234, 88, 12, 0.4);
+      animation: flicker 0.8s infinite alternate ease-in-out;
+      transform-origin: center bottom;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    @keyframes flicker {
+      0% { transform: scale(1) rotate(-2deg); opacity: 0.95; filter: drop-shadow(0 0 4px #f59e0b); }
+      50% { transform: scale(1.08, 0.94) rotate(2.5deg); opacity: 1; filter: drop-shadow(0 0 8px #f59e0b); }
+      100% { transform: scale(0.95, 1.05) rotate(-1.5deg); opacity: 0.9; filter: drop-shadow(0 0 5px #ea580c); }
+    }
+
+    .candle-smoke {
+      display: none;
+      position: absolute;
+      top: -8px;
+      width: 8px;
+      height: 8px;
+      background: rgba(180, 180, 180, 0.6);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .candle-unit.blown .candle-flame {
+      opacity: 0;
+      transform: scale(0.1) translateY(-12px);
+      pointer-events: none;
+    }
+
+    .candle-unit.blown .candle-smoke {
+      display: block;
+      animation: smokeRise 1.2s cubic-bezier(0.1, 0.8, 0.2, 1) forwards;
+    }
+
+    @keyframes smokeRise {
+      0% { opacity: 0.8; transform: translateY(0) scale(1); }
+      50% { opacity: 0.5; transform: translateY(-16px) translateX(4px) scale(2.2); }
+      100% { opacity: 0; transform: translateY(-34px) translateX(-6px) scale(3.5); }
+    }
+
+    .candle-wick {
+      width: 2px;
+      height: 6px;
+      background: #333;
+      margin: 1px 0;
+      position: relative;
+    }
+
+    .candle-unit.blown .candle-wick::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -1px;
+      width: 4px;
+      height: 2px;
+      background: #ef4444;
+      border-radius: 50%;
+      box-shadow: 0 0 4px #ef4444;
+    }
+
+    .candle-stick {
+      width: 18px;
+      height: 52px;
+      border-radius: 4px;
+      background: repeating-linear-gradient(45deg, #fef3c7, #fef3c7 6px, #fde68a 6px, #fde68a 12px);
+      border: 1px solid #e6dac6;
+      box-shadow: inset -2px 0 5px rgba(0,0,0,0.06);
+    }
+
+    .candle-label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--text-tertiary);
+      margin-top: 0.45rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* CODE TERMINAL */
+    .terminal-card {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      margin: 2rem 0;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    .terminal-header {
+      background: #2d2d2d;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid #3c3c3c;
+    }
+
+    .terminal-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+    .td-red { background: #ff5f56; }
+    .td-yellow { background: #ffbd2e; }
+    .td-green { background: #27c93f; }
+
+    .terminal-title {
+      font-size: 0.78rem;
+      color: #999;
+      margin-left: 0.5rem;
+      font-family: var(--font-main);
+      font-weight: 600;
+    }
+
+    .terminal-body {
+      padding: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .t-kw { color: #569cd6; font-weight: 700; }
+    .t-fn { color: #dcdcaa; }
+    .t-str { color: #ce9178; }
+    .t-com { color: #6a9955; font-style: italic; }
+
+    /* STORY SECTIONS */
+    .story-section {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.75rem, 5vw, 3rem);
+      margin: 3.5rem 0;
+      box-shadow: var(--shadow-md);
+    }
+
+    .story-tag {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    .story-title {
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 1.25rem;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .story-body {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .story-body p {
+      margin-bottom: 1.25rem;
+    }
+    .story-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .passenger-exhibit {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .passenger-card {
+      background: var(--bg-surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+    }
+
+    .passenger-role {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .passenger-person {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 0.75rem;
+    }
+
+    .passenger-duty {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* FEATURE VIDEO & PHOTO CARDS */
+    .feature-video-card, .feature-photo-card {
+      background: var(--bg-surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin: 1.75rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .feature-video-card video {
+      width: 100%;
+      max-height: 520px;
+      background: #000;
+      display: block;
+      outline: none;
+    }
+
+    .feature-photo-card img {
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      display: block;
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+    }
+
+    .feature-photo-card img:hover {
+      transform: scale(1.02);
+    }
+
+    .media-card-meta {
+      padding: 1rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* TAG CLOUD */
+    .tag-cloud-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 1.75rem 0;
+    }
+
+    .interactive-tag {
+      background: var(--bg-surface-subtle);
+      border: 1px solid var(--border);
+      padding: 0.45rem 0.95rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .interactive-tag:hover {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .tag-toast {
+      background: var(--bg-surface-subtle);
+      border-left: 4px solid var(--accent);
+      padding: 0.85rem 1.2rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 0.92rem;
+      color: var(--text-main);
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    /* METRICS TABLE */
+    .metric-table-wrap {
+      overflow-x: auto;
+      margin: 1.75rem 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: #ffffff;
+    }
+
+    .metric-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .metric-table th, .metric-table td {
+      padding: 0.85rem 1.15rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .metric-table th {
+      background: var(--bg-surface-subtle);
+      font-weight: 800;
+      color: var(--text-main);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .metric-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .metric-label {
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .metric-value {
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* TIMELINE WITH PULSING NODES */
+    .timeline-wrap {
+      position: relative;
+      margin: 2.5rem 0;
+      padding-left: 2rem;
+    }
+
+    .timeline-wrap::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .timeline-node {
+      position: relative;
+      margin-bottom: 2.25rem;
+    }
+
+    .timeline-node:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -2rem;
+      top: 4px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid #ffffff;
+      box-shadow: 0 0 0 1px var(--border);
+      animation: dotPulse 3s infinite ease-in-out;
+    }
+
+    @keyframes dotPulse {
+      0%, 100% { box-shadow: 0 0 0 1px var(--border), 0 0 0 0 rgba(180, 83, 9, 0.4); }
+      50% { box-shadow: 0 0 0 1px var(--border), 0 0 0 8px rgba(180, 83, 9, 0); }
+    }
+
+    .timeline-time {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 0.35rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* POLAROIDS */
+    .polaroid-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.75rem;
+      margin: 2rem 0;
+    }
+
+    .polaroid-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 0.85rem 0.85rem 1.25rem;
+      border-radius: 4px;
+      box-shadow: 0 6px 18px rgba(43, 33, 24, 0.08);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: zoom-in;
+      text-align: center;
+      position: relative;
+    }
+
+    .polaroid-card:nth-child(even) { transform: rotate(1.2deg); }
+    .polaroid-card:nth-child(odd) { transform: rotate(-1.5deg); }
+    .polaroid-card:nth-child(3n) { transform: rotate(0.8deg); }
+
+    .polaroid-card:hover {
+      transform: translateY(-6px) scale(1.03) rotate(0deg);
+      box-shadow: 0 14px 32px rgba(43, 33, 24, 0.14);
+      z-index: 10;
+    }
+
+    .polaroid-img-wrap {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: #f0e6d6;
+      border-radius: 2px;
+      margin-bottom: 0.85rem;
+    }
+
+    .polaroid-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .polaroid-caption {
+      font-family: var(--font-hand);
+      font-size: 1.15rem;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-bottom: 0.25rem;
+    }
+
+    .polaroid-date {
+      font-size: 0.74rem;
+      font-family: var(--font-mono);
+      color: var(--text-tertiary);
+    }
+
+    /* WISHBOOK STUDIO */
+    .wishbook-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      margin: 2rem 0;
+    }
+
+    .wishbook-studio {
+      background: var(--bg-surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: clamp(1.5rem, 4vw, 2.25rem);
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+    }
+
+    .input-field, .textarea-field {
+      width: 100%;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1rem;
+      font-family: var(--font-main);
+      font-size: 0.95rem;
+      color: var(--text-main);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .input-field:focus, .textarea-field:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(180, 83, 9, 0.12);
+    }
+
+    .prompt-pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0.5rem 0 1rem;
+    }
+
+    .prompt-pill {
+      background: var(--bg-surface);
+      border: 1px dashed var(--border);
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .prompt-pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: #ffffff;
+    }
+
+    .avatar-row {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .avatar-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--bg-surface);
+      border: 2px solid var(--border);
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .avatar-btn.selected {
+      border-color: var(--accent);
+      background: var(--accent-subtle);
+      transform: scale(1.12);
+    }
+
+    .file-dropzone {
+      border: 2px dashed var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+      text-align: center;
+      background: var(--bg-surface);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .file-dropzone:hover {
+      border-color: var(--accent);
+      background: #faf4eb;
+    }
+
+    .media-preview-box {
+      margin-top: 1rem;
+      display: none;
+      position: relative;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      max-height: 220px;
+      background: #000;
+    }
+
+    .media-preview-box img, .media-preview-box video {
+      width: 100%;
+      max-height: 220px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .remove-media-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .live-preview-box {
+      margin-top: 1.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px dashed var(--border);
+    }
+
+    .live-preview-label {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .wishes-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .note-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .note-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: #d1c2ae;
+    }
+
+    .note-head {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .note-avatar {
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .note-author {
+      font-weight: 800;
+      color: var(--text-main);
+      font-size: 1rem;
+    }
+
+    .note-role-tag {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 0.15rem 0.55rem;
+      background: var(--bg-surface-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      color: var(--text-muted);
+      margin-left: 0.35rem;
+    }
+
+    .note-time {
+      font-size: 0.76rem;
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+    }
+
+    .note-title {
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+    }
+
+    .note-text {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      white-space: pre-wrap;
+    }
+
+    .story-card-attachment {
+      margin-top: 1rem;
+      border-radius: 8px;
+      overflow: hidden;
+      max-height: 320px;
+      background: #f8f6f0;
+    }
+
+    .story-card-attachment img {
+      width: 100%;
+      max-height: 320px;
+      object-fit: cover;
+      display: block;
+      cursor: zoom-in;
+    }
+
+    .story-card-attachment video {
+      width: 100%;
+      max-height: 320px;
+      display: block;
+      background: #000;
+    }
+
+    .note-footer {
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .reactions-group {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .rx-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.7rem;
+      background: var(--bg-surface-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .rx-pill:hover {
+      background: #ffffff;
+      border-color: var(--accent);
+      transform: scale(1.05);
+    }
+
+    .rx-pill.active {
+      background: var(--tag-rose-bg);
+      border-color: rgba(168, 42, 36, 0.3);
+      color: var(--tag-rose-text);
+    }
+
+    /* GRAND FINALE LETTER */
+    .finale-box {
+      background: #fbf7f0;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: clamp(2rem, 6vw, 3.5rem) clamp(1.25rem, 4vw, 2.5rem);
+      margin: 4.5rem 0 2rem;
+      text-align: center;
+      box-shadow: 0 10px 35px rgba(180, 83, 9, 0.08);
+      position: relative;
+    }
+
+    .stamps-row {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .postage-stamp {
+      background: #ffffff;
+      border: 1px dashed var(--accent);
+      padding: 0.4rem 0.85rem;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+
+    .wax-seal-btn {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #ef4444, #991b1b 80%, #7f1d1d);
+      border: none;
+      box-shadow: 0 0 0 5px #991b1b, 0 10px 24px rgba(153, 27, 27, 0.5), inset 0 2px 4px rgba(255,255,255,0.4);
+      color: #fef08a;
+      cursor: pointer;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 1.5rem auto 1rem;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+    }
+
+    .wax-seal-btn:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 0 0 6px #b91c1c, 0 14px 32px rgba(153, 27, 27, 0.6);
+    }
+
+    .wax-seal-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .wax-seal-label {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 0.2rem;
+    }
+
+    .final-letter {
+      display: none;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: clamp(1.75rem, 5vw, 3.25rem);
+      margin-top: 2rem;
+      text-align: left;
+      box-shadow: inset 0 0 40px rgba(180, 83, 9, 0.03), var(--shadow-md);
+      position: relative;
+      animation: grandUnfold 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes grandUnfold {
+      0% { opacity: 0; transform: scale(0.94) translateY(20px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .letter-header-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border-subtle);
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.75rem;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .letter-meta-label {
+      font-size: 0.8rem;
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+    }
+
+    .letter-meta-val {
+      font-weight: 800;
+      color: var(--text-main);
+      font-size: 0.95rem;
+    }
+
+    .letter-quote-card {
+      background: var(--bg-surface-subtle);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.75rem 0;
+      font-size: clamp(1.1rem, 3.2vw, 1.35rem);
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    .letter-signature-block {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px dashed var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    .handwritten-sig {
+      font-family: var(--font-hand);
+      font-size: 2.2rem;
+      color: var(--accent);
+      line-height: 1.1;
+      transform: rotate(-2deg);
+    }
+
+    .letter-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    /* A4 KEEPSAKE CARD */
+    .a4-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(43, 33, 24, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 10000;
+      overflow-y: auto;
+      padding: 2rem 1rem;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .a4-modal.active {
+      display: flex;
+    }
+
+    .a4-modal-dialog {
+      max-width: 840px;
+      width: 100%;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .a4-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1.25rem;
+      box-shadow: var(--shadow-md);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-sizing: border-box;
+    }
+
+    .a4-card-sheet {
+      width: 100%;
+      max-width: 210mm;
+      min-height: 297mm;
+      background: #ffffff;
+      color: #2b2118;
+      border: 1px solid #d4af37;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
+      border-radius: 4px;
+      padding: 8mm 10mm;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .a4-inner-border {
+      border: 2px solid #b45309;
+      height: 100%;
+      min-height: 279mm;
+      padding: 5mm 6mm;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .a4-header-top {
+      text-align: center;
+      border-bottom: 2px solid #e6dac6;
+      padding-bottom: 3mm;
+      margin-bottom: 3.5mm;
+    }
+
+    .a4-dispatch-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 7pt;
+      letter-spacing: 0.12em;
+      color: #b45309;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .a4-title {
+      font-size: 19pt;
+      font-weight: 800;
+      color: #2b2118;
+      margin: 1mm 0 0.5mm;
+      letter-spacing: -0.02em;
+    }
+
+    .a4-sub {
+      font-size: 8.5pt;
+      color: #6b5847;
+      font-weight: 600;
+    }
+
+    .a4-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 2mm;
+      margin-bottom: 3.5mm;
+    }
+
+    .a4-mini-polaroid {
+      background: #fdfaf6;
+      border: 1px solid #e6dac6;
+      padding: 1.2mm;
+      border-radius: 3px;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .a4-mini-polaroid img {
+      width: 100%;
+      height: 23mm;
+      object-fit: cover;
+      border-radius: 2px;
+      display: block;
+    }
+
+    .a4-mini-caption {
+      font-size: 5.2pt;
+      font-weight: 700;
+      color: #2b2118;
+      margin-top: 1mm;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .a4-stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: #faf4eb;
+      border: 1px solid #e6dac6;
+      border-radius: 4px;
+      padding: 1.8mm;
+      margin-bottom: 3.5mm;
+      text-align: center;
+    }
+
+    .a4-stat-item {
+      border-right: 1px solid #e6dac6;
+      padding: 0 1mm;
+    }
+
+    .a4-stat-item:last-child {
+      border-right: none;
+    }
+
+    .a4-stat-num {
+      font-size: 7.2pt;
+      font-weight: 800;
+      color: #b45309;
+    }
+
+    .a4-stat-lbl {
+      font-size: 5.2pt;
+      color: #6b5847;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .a4-story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.2mm;
+      margin-bottom: 3.2mm;
+    }
+
+    .a4-story-box {
+      background: #faf6ef;
+      border: 1px solid #e6dac6;
+      border-radius: 4px;
+      padding: 2mm 2.8mm;
+    }
+
+    .a4-story-tag {
+      font-size: 5.8pt;
+      font-weight: 800;
+      color: #b45309;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.8mm;
+    }
+
+    .a4-story-txt {
+      font-size: 6.8pt;
+      line-height: 1.42;
+      color: #2b2118;
+    }
+
+    .a4-letter-body {
+      font-size: 7.6pt;
+      line-height: 1.48;
+      color: #2b2118;
+      text-align: justify;
+      margin-bottom: 2.5mm;
+    }
+
+    .a4-letter-body p {
+      margin-bottom: 1.8mm;
+    }
+
+    .a4-punchline-box {
+      background: #faf4eb;
+      border-left: 3px solid #b45309;
+      padding: 2mm 3.5mm;
+      font-size: 7.8pt;
+      font-weight: 800;
+      color: #2b2118;
+      margin: 2mm 0;
+      font-style: italic;
+    }
+
+    .a4-footer-sign {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-top: 1px dashed #d1c2ae;
+      padding-top: 2.5mm;
+      margin-top: auto;
+      gap: 3mm;
+    }
+
+    .a4-sig-hand {
+      font-family: 'Kalam', cursive;
+      font-size: 15pt;
+      color: #b45309;
+      line-height: 1;
+    }
+
+    /* A4 QR CODE BOX */
+    .a4-qr-block {
+      display: flex;
+      align-items: center;
+      gap: 2mm;
+      background: #faf4eb;
+      border: 1px solid #e6dac6;
+      border-radius: 4px;
+      padding: 1.2mm 2.2mm;
+    }
+
+    .a4-qr-img {
+      width: 14mm;
+      height: 14mm;
+      background: #ffffff;
+      padding: 0.8mm;
+      border-radius: 2px;
+      border: 0.5px solid #d1c2ae;
+      display: block;
+    }
+
+    .a4-qr-caption {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .a4-qr-badge {
+      font-size: 5.6pt;
+      font-weight: 800;
+      color: #b45309;
+      letter-spacing: 0.04em;
+    }
+
+    .a4-qr-url {
+      font-family: 'Space Mono', monospace;
+      font-size: 4.8pt;
+      color: #6b5847;
+      max-width: 32mm;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    @media print {
+      body * {
+        visibility: hidden !important;
+      }
+      #a4-printable-sheet, #a4-printable-sheet * {
+        visibility: visible !important;
+      }
+      #a4-printable-sheet {
+        display: block !important;
+        position: fixed !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 210mm !important;
+        height: 297mm !important;
+        max-width: 210mm !important;
+        max-height: 297mm !important;
+        margin: 0 !important;
+        padding: 8mm 10mm !important;
+        box-shadow: none !important;
+        border: none !important;
+        background: #ffffff !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        z-index: 999999 !important;
+      }
+      .a4-modal, .a4-toolbar, .lightbox-modal, .cursor-dot, .cursor-ring {
+        display: none !important;
+      }
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 0;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer-copy {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .footer-note {
+      font-size: 0.8rem;
+      color: var(--text-tertiary);
+    }
+
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(43, 33, 24, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .lightbox-modal.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      max-width: 900px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 75vh;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    }
+
+    .lightbox-caption {
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom Cursor Elements -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- Top Navigation Bar -->
+  <header class="top-nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand-link">
+        <span style="font-weight: 800; letter-spacing: -0.01em; font-size: 1.05rem; color: var(--text-main);">Happy Bday Kammu 🎂</span>
+      </a>
+
+      <div class="nav-controls">
+        <button type="button" class="sound-toggle-btn" id="sound-btn" onclick="toggleSound()">
+          <span id="sound-icon">🔊</span> <span id="sound-label">Sound On</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Live Transit Status Strip -->
+    <div class="status-strip">
+      <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+        <span class="status-badge">🛵 TRANSIT STATUS</span>
+        <span>Kamleshvar driving · Arvindhan sitting behind existing</span>
+      </div>
+      <div style="color: var(--text-tertiary); font-size: 0.8rem;">
+        📍 Class 11 to Class 12 Finale
+      </div>
+    </div>
+
+    <!-- RUNNING BANNER 1: MEMORY MARQUEE RIBBON -->
+    <div class="marquee-banner">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <span>🛵 The Passenger Chronicles</span> <span class="dot">✦</span>
+          <span>💻 Class 11 CS Lab to Self-Hosting 2026</span> <span class="dot">✦</span>
+          <span>🏸 Rare Badminton Legends</span> <span class="dot">✦</span>
+          <span>🏖️ Marina Beach 7:00 AM Sunrise Cycling</span> <span class="dot">✦</span>
+          <span>📞 2-Hour Midnight Syllabus Calls</span> <span class="dot">✦</span>
+          <span>⏳ Class 12 Moments Remaining</span> <span class="dot">✦</span>
+          <span>🎂 Happy Birthday Kamleshvar</span> <span class="dot">✦</span>
+        </div>
+        <div class="marquee-content">
+          <span>🛵 The Passenger Chronicles</span> <span class="dot">✦</span>
+          <span>💻 Class 11 CS Lab to Self-Hosting 2026</span> <span class="dot">✦</span>
+          <span>🏸 Rare Badminton Legends</span> <span class="dot">✦</span>
+          <span>🏖️ Marina Beach 7:00 AM Sunrise Cycling</span> <span class="dot">✦</span>
+          <span>📞 2-Hour Midnight Syllabus Calls</span> <span class="dot">✦</span>
+          <span>⏳ Class 12 Moments Remaining</span> <span class="dot">✦</span>
+          <span>🎂 Happy Birthday Kamleshvar</span> <span class="dot">✦</span>
+        </div>
+        <div class="marquee-content">
+          <span>🛵 The Passenger Chronicles</span> <span class="dot">✦</span>
+          <span>💻 Class 11 CS Lab to Self-Hosting 2026</span> <span class="dot">✦</span>
+          <span>🏸 Rare Badminton Legends</span> <span class="dot">✦</span>
+          <span>🏖️ Marina Beach 7:00 AM Sunrise Cycling</span> <span class="dot">✦</span>
+          <span>📞 2-Hour Midnight Syllabus Calls</span> <span class="dot">✦</span>
+          <span>⏳ Class 12 Moments Remaining</span> <span class="dot">✦</span>
+          <span>🎂 Happy Birthday Kamleshvar</span> <span class="dot">✦</span>
+        </div>
+        <div class="marquee-content">
+          <span>🛵 The Passenger Chronicles</span> <span class="dot">✦</span>
+          <span>💻 Class 11 CS Lab to Self-Hosting 2026</span> <span class="dot">✦</span>
+          <span>🏸 Rare Badminton Legends</span> <span class="dot">✦</span>
+          <span>🏖️ Marina Beach 7:00 AM Sunrise Cycling</span> <span class="dot">✦</span>
+          <span>📞 2-Hour Midnight Syllabus Calls</span> <span class="dot">✦</span>
+          <span>⏳ Class 12 Moments Remaining</span> <span class="dot">✦</span>
+          <span>🎂 Happy Birthday Kamleshvar</span> <span class="dot">✦</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO SECTION: THE OPENING NARRATIVE -->
+    <section class="hero-box" id="top">
+      <span class="hero-eyebrow">✨ Birthday Edition · Made by Arvindhan</span>
+      <h1 class="hero-title">Happy Birthday,<br>Kamleshvar.</h1>
+      <p class="hero-subtitle">
+        From teaching you the basics in Class 11 Computer Science class to watching you self-host full server clusters today—and sitting behind you on every single bike and scooty ride in between.
+      </p>
+
+      <!-- INTERACTIVE BIRTHDAY CALENDAR CARD -->
+      <div class="calendar-container">
+        <div class="calendar-card" id="birthday-calendar-card" onclick="flipCalendarCard()" title="Tap to flip the birthday calendar!">
+          <div class="calendar-header">
+            <div class="calendar-rings">
+              <div class="calendar-ring-notch"></div>
+              <div class="calendar-ring-notch"></div>
+              <div class="calendar-ring-notch"></div>
+              <div class="calendar-ring-notch"></div>
+            </div>
+            <div class="calendar-month" id="cal-month-text">SEPTEMBER</div>
+          </div>
+          <div class="calendar-body">
+            <div class="calendar-day-num" id="cal-day-num">02</div>
+            <div class="calendar-day-name" id="cal-day-label">BIRTHDAY EDITION 🎂</div>
+          </div>
+          <div class="calendar-footer">
+            <span>✨</span> <span id="cal-footer-text">Tap to turn the page</span>
+          </div>
+        </div>
+        <div class="calendar-hint" id="cal-status-toast">
+          📅 Interactive Date Tear-off · Celebrating 5 Years of Brotherhood (2021-2026)
+        </div>
+      </div>
+
+      <!-- Quick Trajectory Badges -->
+      <div class="stat-pills-row">
+        <div class="stat-pill">💻 CS Apprentice → Self-Hosting Pro</div>
+        <div class="stat-pill">🛵 100% Designated Driver</div>
+        <div class="stat-pill">📞 2+ Hour Midnight Calls</div>
+        <div class="stat-pill">🏖️ 7 AM Marina Beach Cycling</div>
+        <div class="stat-pill">⏳ Class 12 Final Moments</div>
+      </div>
+
+      <div class="hero-actions">
+        <button type="button" class="btn btn-solid" onclick="SoundEngine.grandOpening(); triggerConfetti();">
+          🎵 Celebrate Birthday Chime
+        </button>
+        <a href="#cs-origin" class="btn btn-subtle">How It Started 💻</a>
+        <a href="#passenger-seat" class="btn btn-subtle">The Passenger Chronicles 🛵</a>
+        <a href="#wishbook" class="btn btn-subtle">Community Stories ✍️</a>
+      </div>
+
+      <!-- Interactive Birthday Candles -->
+      <div class="candles-container">
+        <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em;">
+          🎂 Make a Wish &amp; Tap Candles to Blow Them Out
+        </div>
+        <div class="candles-row" id="candles-row">
+          <div class="candle-unit" onclick="blowCandle(this, 'Server Uptime 99.99%')">
+            <div class="candle-flame"></div>
+            <div class="candle-smoke"></div>
+            <div class="candle-wick"></div>
+            <div class="candle-stick"></div>
+            <div class="candle-label">Uptime 🚀</div>
+          </div>
+          <div class="candle-unit" onclick="blowCandle(this, 'Endless Open Roads')">
+            <div class="candle-flame"></div>
+            <div class="candle-smoke"></div>
+            <div class="candle-wick"></div>
+            <div class="candle-stick"></div>
+            <div class="candle-label">Rides 🛵</div>
+          </div>
+          <div class="candle-unit" onclick="blowCandle(this, 'Class 12 Exam Victory')">
+            <div class="candle-flame"></div>
+            <div class="candle-smoke"></div>
+            <div class="candle-wick"></div>
+            <div class="candle-stick"></div>
+            <div class="candle-label">Exams 🎓</div>
+          </div>
+          <div class="candle-unit" onclick="blowCandle(this, 'Lifelong Brotherhood')">
+            <div class="candle-flame"></div>
+            <div class="candle-smoke"></div>
+            <div class="candle-wick"></div>
+            <div class="candle-stick"></div>
+            <div class="candle-label">Brothers 🥂</div>
+          </div>
+        </div>
+        <div id="candle-wish-chip" style="font-size: 0.88rem; font-weight: 700; color: var(--accent); min-height: 1.4rem;">
+          Click any candle flame to blow it out!
+        </div>
+        <div style="margin-top: 0.5rem;">
+          <button type="button" class="btn btn-subtle" onclick="relightCandles()" style="font-size: 0.76rem; padding: 0.3rem 0.8rem;">
+            Relight all candles 🕯️
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY 1: HOW IT STARTED (CS CLASS 11 ORIGIN) -->
+    <section class="story-section" id="cs-origin">
+      <div class="story-tag">Chapter 01 · The Origin Point</div>
+      <h2 class="story-title">From Class 11 CS Lab to Self-Hosting Wizardry 💻</h2>
+      <div class="story-body">
+        <p>In Class 11, we sat together in Hema TS ma'am's Computer Science class. Back then, coding was new territory for you—you were asking how the syntax worked, debugging basic logic errors, and trying to wrap your head around programming fundamentals. I was glad to teach and guide you through those first concepts.</p>
+        <p>Fast forward to today: you literally self-host your own home servers, configure networking clusters, spin up isolated homelabs, and debug infrastructure that would make most college students sweat. Watching that evolution from asking basic questions in Class 11 to becoming a hands-on tech architect has been one of the most rewarding things to witness.</p>
+      </div>
+
+      <!-- Interactive Code Terminal -->
+      <div class="terminal-card">
+        <div class="terminal-header">
+          <div class="terminal-dot td-red"></div>
+          <div class="terminal-dot td-yellow"></div>
+          <div class="terminal-dot td-green"></div>
+          <span class="terminal-title">kamleshvar_evolution.py — bash — 80x24</span>
+        </div>
+        <div class="terminal-body">
+          <div><span class="t-com"># Class 11 CS Class with Hema TS Ma'am</span></div>
+          <div><span class="t-kw">class</span> <span class="t-fn">Friendship</span>:</div>
+          <div>&nbsp;&nbsp;<span class="t-kw">def</span> <span class="t-fn">__init__</span>(self):</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;self.origin = <span class="t-str">"Class 11 CS Lab"</span></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;self.teacher = <span class="t-str">"Hema TS Ma'am"</span></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;self.driver = <span class="t-str">"Kamleshvar"</span></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;self.passenger = <span class="t-str">"Arvindhan"</span></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;self.calls_avg_duration = <span class="t-str">"2+ hours"</span></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;self.badminton_skill = <span class="t-str">"Rare &amp; purely chaotic"</span></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;self.status = <span class="t-str">"Brothers for life"</span></div>
+          <br>
+          <div><span class="t-com"># Present Day Reality (2026)</span></div>
+          <div>kamleshvar.status = <span class="t-str">"Self-hosting servers &amp; driving everywhere 🚀"</span></div>
+          <div>arvindhan.role = <span class="t-str">"Permanent backseat supervisor &amp; mentor"</span></div>
+        </div>
+      </div>
+
+      <!-- Photo with Hema TS Ma'am -->
+      <div class="feature-photo-card">
+        <img src="{{ url_for('static', filename='photos/hema_ts_cs_teacher_group.jpg') }}" alt="Hema TS CS Class Group Photo" onclick="openLightbox(this.src, 'With Hema TS (CS Teacher) · Where our CS journey originally kicked off!')">
+        <div class="media-card-meta">
+          <div style="font-weight: 700; font-size: 0.92rem;">With Hema TS (CS Teacher) · Class 11 CS Lab Group Photo</div>
+          <span class="status-badge" style="background: var(--tag-green-bg); color: var(--tag-green-text);">💻 CS CLASS ORIGIN · 2021</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY 2: MIDNIGHT CALLS & STUDY CRUNCHES -->
+    <section class="story-section" id="midnight-calls">
+      <div class="story-tag">Chapter 02 · Late Night Operations</div>
+      <h2 class="story-title">Hours of Calls &amp; Midnight Syllabus Crunches 📞</h2>
+      <div class="story-body">
+        <p>Every single memorable phone call started with the exact same sentence: <em>“Bro, quick 2-minute syllabus doubt.”</em></p>
+        <p>Two and a half hours later, neither of us had opened the textbook. We were deep into debates about server operating systems, dissecting life philosophies, laughing until our stomachs hurt, or panicking about the exam in 5 hours. Those late-night study crunches and endless calls turned school stress into core memories.</p>
+      </div>
+    </section>
+
+    <!-- STORY 3: RARE BADMINTON MATCHES -->
+    <section class="story-section" id="badminton">
+      <div class="story-tag">Chapter 03 · Rare Athletic Endeavors</div>
+      <h2 class="story-title">The Rare Badminton Matches (Pure Chaos) 🏸</h2>
+      <div class="story-body">
+        <p>We didn't play badminton often—it was a rare occasion occurrence. But whenever we picked up those racquets, it was never about who won the match. It was 10% athleticism, 90% wild swings, chasing shuttlecocks into random corners, and laughing so hard we could barely serve. Every rare match was legendary.</p>
+      </div>
+    </section>
+
+    <!-- STORY 4: FIRST HANGOUT & MARINA BEACH CYCLING -->
+    <section class="story-section" id="marina-beach">
+      <div class="story-tag">Chapter 04 · The First Official Hangout</div>
+      <h2 class="story-title">7:00 AM Marina Beach Sunrise Cycling 🏖️🚲</h2>
+      <div class="story-body">
+        <p>Our very first official hangout outside school set the tone for everything. Waking up at dawn, meeting at 7:00 AM, and cycling side-by-side along Marina Beach with the cool morning breeze coming off the Bay of Bengal. It was the first of countless spontaneous rides that defined our years together.</p>
+      </div>
+
+      <div class="feature-photo-card">
+        <img src="{{ url_for('static', filename='photos/marina_beach_cycling_first_hangout.jpg') }}" alt="Marina Beach Sunrise Cycling" onclick="openLightbox(this.src, 'Marina Beach First Hangout · 7:00 AM Sunrise Cycling')">
+        <div class="media-card-meta">
+          <div style="font-weight: 700; font-size: 0.92rem;">Marina Beach Sunrise Cycling · First Official Hangout</div>
+          <span class="status-badge">FIRST OFFICIAL HANGOUT</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY 5: THE PASSENGER CHRONICLES (FEATURING THE ACTUAL BIKE RIDE VIDEO) -->
+    <section class="story-section" id="passenger-seat">
+      <div class="story-tag">Chapter 05 · The Designated Driver Protocol</div>
+      <h2 class="story-title">The Passenger Seat: 100% Driving vs. Zero GPS 🛵</h2>
+      <div class="story-body">
+        <p>Let's address the golden rule of our friendship: <strong>Kamleshvar drives 100% of the time.</strong></p>
+        <p>Whether it was scooty rides or bike trips through rush hour traffic, Kamleshvar handled every single turn, pothole, and intersection. Meanwhile, Arvindhan sat behind contributing zero navigational value and 100% moral support. It's a system that has worked without failure for five years.</p>
+      </div>
+
+      <div class="passenger-exhibit">
+        <div class="passenger-card">
+          <div class="passenger-role" style="color: var(--accent);">Primary Operator</div>
+          <div class="passenger-person">Kamleshvar · The Driver 🛵</div>
+          <div class="passenger-duty">
+            Handles handlebars, navigation, dodging traffic, knowing every shortcut in the city, and ensuring we reach in one piece.
+          </div>
+        </div>
+
+        <div class="passenger-card">
+          <div class="passenger-role" style="color: var(--text-tertiary);">Backseat Consultant</div>
+          <div class="passenger-person">Arvindhan · The Passenger 🪑</div>
+          <div class="passenger-duty">
+            Provides continuous conversation, provides zero GPS directions, holds on during sharp turns, and supplies unconditional moral support.
+          </div>
+        </div>
+      </div>
+
+      <!-- THE ACTUAL BIKE RIDE VIDEO (EXHIBIT A) -->
+      <div class="feature-video-card">
+        <video controls playsinline preload="metadata" class="ride-video-player">
+          <source src="{{ url_for('static', filename='videos/bike_ride.mp4') }}" type="video/mp4">
+          Your browser does not support HTML5 video playback.
+        </video>
+        <div class="media-card-meta">
+          <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+            <span class="status-badge" style="background: var(--tag-rose-bg); color: var(--tag-rose-text);">📹 EXHIBIT A: LIVE ARCHIVAL FOOTAGE</span>
+            <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-main);">Kamleshvar Driving · Arvindhan Filming from Behind</span>
+          </div>
+          <span style="font-size: 0.78rem; font-family: var(--font-mono); color: var(--text-tertiary);">Live Evidence Verified</span>
+        </div>
+      </div>
+      <p style="font-style: italic; color: var(--text-tertiary); font-size: 0.88rem; text-align: center; margin: 0.5rem 0 1.5rem;">
+        “Live evidence: Kamleshvar handling the handlebars while Arvindhan sits behind providing moral support and zero navigation.” 🛵💨
+      </p>
+
+      <!-- Additional Photo of Sunny Cycling -->
+      <div class="feature-photo-card">
+        <img src="{{ url_for('static', filename='photos/kamlesh_cycle_sunny.jpg') }}" alt="Kamlesh Cycle Ride" onclick="openLightbox(this.src, 'Kamleshvar in his element enjoying the cycle ride in the sun')">
+        <div class="media-card-meta">
+          <div style="font-weight: 700; font-size: 0.92rem;">Sunny Day &amp; The Cycle · Kamleshvar In His Element</div>
+          <span class="status-badge" style="background: var(--tag-amber-bg); color: var(--tag-amber-text);">🚲 SUMMER RIDES</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY 6: NEXTGEN 26'1 EVENT OPERATIONS (ORGANISED BY US!) -->
+    <section class="story-section" id="nextgen-event">
+      <div class="story-tag">Chapter 06 · Flagship Event Operations</div>
+      <h2 class="story-title">NextGen 26'1 · When We Ran the Whole Show 🎤🚀</h2>
+      <div class="story-body">
+        <p>If anyone ever needed proof of what happens when you put two CS partners in charge of a massive school event, NextGen 26'1 was the ultimate testament. From last-minute technical troubleshooting, setting up stage displays and AV systems, to running around coordinating schedules... there was that exact moment backstage where things were moving at 100 miles an hour, and we just looked at each other, shared an inside laugh, and locked in to make sure the entire event ran flawlessly.</p>
+        <p>NextGen 26'1 proved that whatever challenge we take on together, we pull it off like absolute champions.</p>
+      </div>
+
+      <div class="feature-photo-card">
+        <img src="{{ url_for('static', filename='photos/nextgen_2026_event_organizers.jpg') }}" alt="NextGen 26'1 Event Organizers" onclick="openLightbox(this.src, 'NextGen 26\'1 Event Organizers · Arvindhan & Kamleshvar pulling off the flagship event')">
+        <div class="media-card-meta">
+          <div style="font-size: 0.88rem; font-weight: 700; color: var(--text-main);">The dream team in action pulling off an unforgettable event 🎤🚀</div>
+          <span class="status-badge" style="background: var(--tag-green-bg); color: var(--tag-green-text);">MISSION ACCOMPLISHED ✦ 2026</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY 7: MICHAEL MOVIE OUTING -->
+    <section class="story-section" id="michael-movie">
+      <div class="story-tag">Chapter 07 · Cinema &amp; Good Times</div>
+      <h2 class="story-title">Michael Movie Theatre Outing 🍿🎬</h2>
+      <div class="story-body">
+        <p>Group outings to the cinema, pre-movie debates, and catching the Michael movie together in the theatre. Unforgettable memories with great company.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 1.5rem;">
+        <div class="feature-photo-card" style="margin: 0;">
+          <img src="{{ url_for('static', filename='photos/michael_movie_theatre.jpg') }}" alt="Michael Movie Theatre" onclick="openLightbox(this.src, 'Michael Movie In Theatre Outing')">
+          <div class="media-card-meta">
+            <span style="font-size: 0.85rem; font-weight: 700;">In-Theatre Photo 🎬</span>
+            <span style="font-size: 0.76rem; color: var(--text-tertiary); font-family: var(--font-mono);">Screen Room</span>
+          </div>
+        </div>
+        <div class="feature-photo-card" style="margin: 0;">
+          <img src="{{ url_for('static', filename='photos/michael_movie_outing.jpg') }}" alt="Michael Movie Outing" onclick="openLightbox(this.src, 'Michael Movie Pre-Show Outing')">
+          <div class="media-card-meta">
+            <span style="font-size: 0.85rem; font-weight: 700;">Pre-Show Hangout 🍿</span>
+            <span style="font-size: 0.76rem; color: var(--text-tertiary); font-family: var(--font-mono);">Lobby Outing</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY 8: INTERACTIVE BRAIN DUMP & INSIDE JOKES -->
+    <section class="story-section" id="brain-dump">
+      <div class="story-tag">Chapter 08 · Inside Jokes &amp; Sticker Vault</div>
+      <h2 class="story-title">The Memory Tag Cloud 🏷️</h2>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.25rem;">
+        Tap any sticker below to unlock the backstory behind our biggest inside jokes and milestones:
+      </p>
+
+      <div class="tag-cloud-container">
+        <button type="button" class="interactive-tag" onclick="showTagInfo('Class 11', 'Where it all started. CS class, chaotic code debugging, and the beginning of 5 years of adventures.')">🏫 Class 11</button>
+        <button type="button" class="interactive-tag" onclick="showTagInfo('Hema TS CS Class', 'Where our tech mentorship started. From teaching you the basics to watching you build full server homelabs today.')">👩‍🏫 Hema TS Ma\'am</button>
+        <button type="button" class="interactive-tag" onclick="showTagInfo('NextGen 26\'1 Event', 'Organizing and pulling off the NextGen 26\'1 event together — backstage hustle and absolute champions on stage.')">🎤 NextGen 26\'1 Event</button>
+        <button type="button" class="interactive-tag" onclick="showTagInfo('Marina Beach Hangout', 'Our very first hangout: 7:00 AM cycling along Marina Beach. The beginning of countless spontaneous rides.')">🏖️ Marina Beach Cycling</button>
+        <button type="button" class="interactive-tag" onclick="showTagInfo('Hours of Calls', 'Starting with a 2-minute syllabus doubt, ending 2 hours later discussing servers, life theories, and exam stress.')">📞 Hours-Long Calls</button>
+        <button type="button" class="interactive-tag" onclick="showTagInfo('Late Night Study', 'Fighting sleep before exams, sharing notes, and keeping each other awake with random inside jokes.')">🌙 Late Night Studies</button>
+        <button type="button" class="interactive-tag" onclick="showTagInfo('Beginner to Self-Hosting', 'From asking how basic syntax works to self-hosting complete server clusters and homelabs. Immense growth.')">💻 Beginner → Self-Hosting</button>
+        <button type="button" class="interactive-tag" onclick="showTagInfo('Random Tech Discussions', 'Turning simple CS concepts into full-blown architecture debates that lasted well past midnight.')">⚡ Random Tech Discussions</button>
+        <button type="button" class="interactive-tag" onclick="showTagInfo('Rare Badminton Games', 'We played on rare occasions, and every single match was pure comedic chaos from start to finish.')">🏸 Rare Badminton Games</button>
+        <button type="button" class="interactive-tag" onclick="showTagInfo('Bike & Scooty Rides', 'Cruising through Chennai traffic with zero GPS because Kamleshvar somehow knew every shortcut.')">🛵 Bike &amp; Scooty Rides</button>
+        <button type="button" class="interactive-tag" onclick="showTagInfo('Passenger Seat', 'Arvindhan\'s permanent designated spot: sitting behind, holding on, providing 100% moral support.')">🪑 Passenger Seat</button>
+        <button type="button" class="interactive-tag" onclick="showTagInfo('Class 12 Ending', 'Only a few moments left of our school life. Moving to colleges soon, but this brotherhood stays unchanged.')">⏳ Class 12 Ending</button>
+        <button type="button" class="interactive-tag" onclick="showTagInfo('Bro...', 'The universal opening to every single midnight crisis, tech doubt, or spontaneous ride plan.')">💬 &quot;Bro...&quot;</button>
+        <button type="button" class="interactive-tag" onclick="showTagInfo('Golden Memories', 'Years of friendship that turned two classmates into brothers for life.')">✨ A Lot of Memories</button>
+      </div>
+
+      <div class="tag-toast" id="tag-toast-display">
+        💡 Tap any sticker above to explore the memory
+      </div>
+    </section>
+
+    <!-- STORY 9: THE FRIENDSHIP METRICS TABLE -->
+    <section class="story-section" id="metrics">
+      <div class="story-tag">Chapter 09 · Analytical Breakdown</div>
+      <h2 class="story-title">Official Friendship Audit (2021-2026) 📊</h2>
+
+      <div class="metric-table-wrap">
+        <table class="metric-table">
+          <thead>
+            <tr>
+              <th>Metric Area</th>
+              <th>Documented Reality</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="metric-label">CS Evolution</td>
+              <td class="metric-value" style="color: var(--tag-green-text);">Beginner in Class 11 → Self-Hosting Pro (+1000%) 📈</td>
+            </tr>
+            <tr>
+              <td class="metric-label">First Hangout</td>
+              <td class="metric-value">Marina Beach Sunrise Cycling 🏖️🚲</td>
+            </tr>
+            <tr>
+              <td class="metric-label">Phone Call Duration</td>
+              <td class="metric-value">Estimated: 2 mins · Actual: 2+ hours 📞</td>
+            </tr>
+            <tr>
+              <td class="metric-label">Midnight Study Sessions</td>
+              <td class="metric-value">30% Studying, 70% Deep Life Philosophy 🌙</td>
+            </tr>
+            <tr>
+              <td class="metric-label">Badminton Proficiency</td>
+              <td class="metric-value">Rare Occasions (100% Laughs, 10% Athleticism) 🏸</td>
+            </tr>
+            <tr>
+              <td class="metric-label">Ride Division of Labor</td>
+              <td class="metric-value">Kamleshvar drives. Arvindhan sits behind. 🛵</td>
+            </tr>
+            <tr>
+              <td class="metric-label">Passenger Navigational Aid</td>
+              <td class="metric-value" style="color: var(--tag-rose-text);">Extremely concerning (100% : 0%) ⚠️</td>
+            </tr>
+            <tr>
+              <td class="metric-label">Class 12 School Moments</td>
+              <td class="metric-value" style="color: var(--tag-amber-text);">Only a few remaining... ⏳</td>
+            </tr>
+            <tr>
+              <td class="metric-label">Brotherhood Rating</td>
+              <td class="metric-value" style="color: var(--tag-green-text);">Unbeatable ★★★★★</td>
+            </tr>
+            <tr>
+              <td class="metric-label">Would Do It All Again?</td>
+              <td class="metric-value" style="color: var(--accent);">In a heartbeat. 🚀</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- STORY 10: THE JOURNEY TIMELINE -->
+    <section class="story-section" id="timeline">
+      <div class="story-tag">Chapter 10 · The Progression</div>
+      <h2 class="story-title">Five Years of Unforgettable Milestones ⏳</h2>
+
+      <div class="timeline-wrap">
+        <div class="timeline-node">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">CLASS 11 · 2021</div>
+          <div class="timeline-title">The First Python Script with Hema TS Ma'am 💻</div>
+          <div class="timeline-desc">Sitting in the computer lab, teaching you basic loops and syntax. The spark that ignited 5 years of homelab madness.</div>
+        </div>
+
+        <div class="timeline-node">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">SUMMER · 07:00 AM</div>
+          <div class="timeline-title">First Official Hangout: Marina Beach Cycling 🏖️</div>
+          <div class="timeline-desc">Early morning ride with the sea breeze along Marina Beach. The very first adventure outside the school gates.</div>
+        </div>
+
+        <div class="timeline-node">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">CLASS 11 → CLASS 12</div>
+          <div class="timeline-title">Midnight Syllabus Marathon Calls 📞</div>
+          <div class="timeline-desc">2-minute doubt calls that morphed into 2 AM tech debates, exam panic sessions, and uncontrollable laughter.</div>
+        </div>
+
+        <div class="timeline-node">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">INTERMITTENT WEEKENDS</div>
+          <div class="timeline-title">The Rare Chaotic Badminton Matches 🏸</div>
+          <div class="timeline-desc">Playing on rare occasions—where neither of us cared about scoreboards because we were laughing too hard.</div>
+        </div>
+
+        <div class="timeline-node">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">FLAGSHIP EVENT · 2026</div>
+          <div class="timeline-title">NextGen 26'1 Event Operations (Organised by Us!) 🎤</div>
+          <div class="timeline-desc">Running around backstage, coordinating AV setups, managing logistics, and pulling off an iconic event together.</div>
+        </div>
+
+        <div class="timeline-node">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">EVERY SINGLE RIDE</div>
+          <div class="timeline-title">The Designated Driver &amp; Permanent Passenger 🛵</div>
+          <div class="timeline-desc">Kamleshvar navigating every road, curve, and traffic jam while Arvindhan sits behind providing moral support.</div>
+        </div>
+
+        <div class="timeline-node">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">THE PRESENT FINALE · 2026</div>
+          <div class="timeline-title">Class 12 Coming to an End ⏳</div>
+          <div class="timeline-desc">Only a few moments left of our school life. Moving on to colleges soon, but this brotherhood stays unchanged.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY 11: POLAROID MEMORY WALL -->
+    <section class="story-section" id="photos">
+      <div class="story-tag">Chapter 11 · Visual Archives</div>
+      <h2 class="story-title">Polaroid Memory Wall 📸</h2>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+        Click on any memory to inspect it in high resolution:
+      </p>
+
+      <div class="polaroid-gallery">
+        {% for p in photos %}
+        <div class="polaroid-card" onclick="openLightbox('/static/photos/{{ p.filename }}', '{{ p.title }} — {{ p.caption }}')">
+          <div class="polaroid-img-wrap">
+            <img src="/static/photos/{{ p.filename }}" alt="{{ p.title }}" loading="lazy">
+          </div>
+          <div class="polaroid-caption">{{ p.title }}</div>
+          <div class="polaroid-date">{{ p.date }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- STORY 12: COMMUNITY WISHBOOK & STORY STUDIO -->
+    <section class="story-section" id="wishbook">
+      <div class="story-tag">Chapter 12 · Community Guestbook Studio</div>
+      <h2 class="story-title">Add Your Story with Kamleshvar ✍️</h2>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;">
+        Friends and batchmates: drop your favorite memory, inside joke, or birthday wish for Kamleshvar. You can also attach photos or video clips!
+      </p>
+
+      <!-- RUNNING BANNER 2: GUESTBOOK TICKER RIBBON -->
+      <div class="marquee-banner">
+        <div class="marquee-track">
+          <div class="marquee-content">
+            <span>✨ Drop Your Memory With Kamleshvar</span> <span class="dot">✦</span>
+            <span>📸 Attach Photos &amp; Video Clips</span> <span class="dot">✦</span>
+            <span>🚀 Forever Archived on the Web</span> <span class="dot">✦</span>
+            <span>💬 Unfiltered Inside Jokes</span> <span class="dot">✦</span>
+            <span>🥂 Class of 2026 Brotherhood</span> <span class="dot">✦</span>
+          </div>
+          <div class="marquee-content">
+            <span>✨ Drop Your Memory With Kamleshvar</span> <span class="dot">✦</span>
+            <span>📸 Attach Photos &amp; Video Clips</span> <span class="dot">✦</span>
+            <span>🚀 Forever Archived on the Web</span> <span class="dot">✦</span>
+            <span>💬 Unfiltered Inside Jokes</span> <span class="dot">✦</span>
+            <span>🥂 Class of 2026 Brotherhood</span> <span class="dot">✦</span>
+          </div>
+          <div class="marquee-content">
+            <span>✨ Drop Your Memory With Kamleshvar</span> <span class="dot">✦</span>
+            <span>📸 Attach Photos &amp; Video Clips</span> <span class="dot">✦</span>
+            <span>🚀 Forever Archived on the Web</span> <span class="dot">✦</span>
+            <span>💬 Unfiltered Inside Jokes</span> <span class="dot">✦</span>
+            <span>🥂 Class of 2026 Brotherhood</span> <span class="dot">✦</span>
+          </div>
+          <div class="marquee-content">
+            <span>✨ Drop Your Memory With Kamleshvar</span> <span class="dot">✦</span>
+            <span>📸 Attach Photos &amp; Video Clips</span> <span class="dot">✦</span>
+            <span>🚀 Forever Archived on the Web</span> <span class="dot">✦</span>
+            <span>💬 Unfiltered Inside Jokes</span> <span class="dot">✦</span>
+            <span>🥂 Class of 2026 Brotherhood</span> <span class="dot">✦</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="wishbook-layout">
+        <!-- Interactive Form Studio -->
+        <div class="wishbook-studio">
+          <form id="story-form" onsubmit="submitStory(event)">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="story-author">Your Name *</label>
+                <input type="text" id="story-author" name="author" class="input-field" placeholder="e.g. Arvindhan, Rohan..." required oninput="updateLivePreview()">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="story-role">Connection / Role</label>
+                <input type="text" id="story-role" name="role" class="input-field" placeholder="e.g. Classmate, Friend, Homelab Ally" oninput="updateLivePreview()">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="story-title-input">Story Title (Optional)</label>
+              <input type="text" id="story-title-input" name="title" class="input-field" placeholder="e.g. That midnight call when the server died" oninput="updateLivePreview()">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Story Prompts / Starters</label>
+              <div class="prompt-pills-row">
+                <button type="button" class="prompt-pill" onclick="insertPrompt('Remember when we ')">💡 “Remember when...”</button>
+                <button type="button" class="prompt-pill" onclick="insertPrompt('Back in CS class ')">🏫 “CS lab memory...”</button>
+                <button type="button" class="prompt-pill" onclick="insertPrompt('That random hangout where ')">🛵 “Hangout story...”</button>
+                <button type="button" class="prompt-pill" onclick="insertPrompt('Wishing you ')">🎂 “Birthday wish...”</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="story-text-input">Your Story / Message *</label>
+              <textarea id="story-text-input" name="text" class="textarea-field" rows="4" placeholder="Write your memory with Kamleshvar here..." required oninput="updateLivePreview()"></textarea>
+              <div style="display: flex; justify-content: space-between; font-size: 0.76rem; color: var(--text-tertiary); margin-top: 0.35rem;">
+                <span id="char-count">0 characters</span>
+                <span id="draft-status" style="color: var(--tag-green-text);">Auto-saved 💾</span>
+              </div>
+            </div>
+
+            <!-- Avatar Picker -->
+            <div class="form-group">
+              <label class="form-label">Pick an Avatar Icon</label>
+              <div class="avatar-row">
+                <button type="button" class="avatar-btn selected" onclick="pickAvatar(this, '🎂')">🎂</button>
+                <button type="button" class="avatar-btn" onclick="pickAvatar(this, '🛵')">🛵</button>
+                <button type="button" class="avatar-btn" onclick="pickAvatar(this, '💻')">💻</button>
+                <button type="button" class="avatar-btn" onclick="pickAvatar(this, '🏸')">🏸</button>
+                <button type="button" class="avatar-btn" onclick="pickAvatar(this, '🏖️')">🏖️</button>
+                <button type="button" class="avatar-btn" onclick="pickAvatar(this, '☕')">☕</button>
+                <button type="button" class="avatar-btn" onclick="pickAvatar(this, '🌟')">🌟</button>
+                <button type="button" class="avatar-btn" onclick="pickAvatar(this, '🍕')">🍕</button>
+                <button type="button" class="avatar-btn" onclick="pickAvatar(this, '🔥')">🔥</button>
+                <button type="button" class="avatar-btn" onclick="pickAvatar(this, '🌸')">🌸</button>
+              </div>
+              <input type="hidden" id="story-avatar-val" name="avatar" value="🎂">
+            </div>
+
+            <!-- Media Upload Dropzone -->
+            <div class="form-group">
+              <label class="form-label">Attach Photo or Video (Optional)</label>
+              <div class="file-dropzone" onclick="document.getElementById('media-file-input').click()">
+                <input type="file" id="media-file-input" name="media" accept="image/*,video/*" style="display: none;" onchange="handleFileSelect(event)">
+                <span style="font-size: 1.5rem;">📸 📹</span>
+                <div style="font-weight: 700; font-size: 0.88rem; color: var(--text-main); margin-top: 0.25rem;">
+                  Click to choose a photo or video
+                </div>
+                <div style="font-size: 0.78rem; color: var(--text-tertiary);">
+                  JPG, PNG, GIF, MP4, WEBM up to 50MB
+                </div>
+              </div>
+
+              <!-- Media Preview -->
+              <div class="media-preview-box" id="media-preview-container">
+                <button type="button" class="remove-media-btn" onclick="removeSelectedMedia()" title="Remove file">✕</button>
+                <img id="image-preview" src="" alt="Selected Photo" style="display: none;">
+                <video id="video-preview" src="" controls playsinline style="display: none;"></video>
+              </div>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+              <button type="submit" class="btn btn-solid" id="submit-story-btn" style="width: 100%; justify-content: center; padding: 0.85rem;">
+                Post Story to Archive ✨
+              </button>
+            </div>
+          </form>
+
+          <!-- Live Card Preview -->
+          <div class="live-preview-box">
+            <div class="live-preview-label">
+              <span>👁️</span> Live Card Preview
+            </div>
+            <div class="note-card" style="background: var(--bg-surface); border-style: dashed;">
+              <div class="note-head">
+                <div class="note-avatar" id="prev-avatar">🎂</div>
+                <div>
+                  <div class="note-author">
+                    <span id="prev-author">Your Name</span>
+                    <span class="note-role-tag" id="prev-role">Friend</span>
+                  </div>
+                  <div class="note-time">Just now · Preview</div>
+                </div>
+              </div>
+              <div class="note-title" id="prev-title" style="display: none;"></div>
+              <p class="note-text" id="prev-text" style="color: var(--text-tertiary); font-style: italic;">Your story will appear here as you type...</p>
+              <div id="prev-media-container" style="display: none;" class="story-card-attachment">
+                <img id="prev-img" src="" alt="" style="display: none;">
+                <video id="prev-video" controls playsinline style="display: none;"></video>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stories Feed -->
+        <div class="wishes-list" id="stories-feed">
+          {% for s in stories %}
+          <div class="note-card" id="{{ s.id }}">
+            <div class="note-head">
+              <div class="note-avatar">{{ s.avatar if s.avatar else '🎂' }}</div>
+              <div>
+                <div class="note-author">
+                  <span>{{ s.author }}</span>
+                  {% if s.role %}
+                  <span class="note-role-tag">{{ s.role }}</span>
+                  {% endif %}
+                </div>
+                <div class="note-time">{{ s.created_at if s.created_at else 'Archival Note' }}</div>
+              </div>
+            </div>
+
+            {% if s.title %}
+            <div class="note-title">{{ s.title }}</div>
+            {% endif %}
+
+            <p class="note-text">{{ s.text }}</p>
+
+            {% if s.media_url %}
+            <div class="story-card-attachment">
+              {% if s.media_type == 'image' %}
+              <img src="{{ s.media_url }}" alt="Attachment" onclick="openLightbox('{{ s.media_url }}', 'Photo shared by {{ s.author }}')">
+              {% elif s.media_type == 'video' %}
+              <video src="{{ s.media_url }}" controls playsinline preload="metadata"></video>
+              {% endif %}
+            </div>
+            {% endif %}
+
+            <div class="note-footer">
+              <span style="font-size: 0.75rem; color: var(--text-tertiary); font-family: var(--font-mono);">
+                Archived Memory
+              </span>
+
+              <div class="reactions-group">
+                <button type="button" class="rx-pill rx-heart {% if user_reactions and user_reactions.get(s.id) == 'heart' %}active{% endif %}" onclick="reactToStory('{{ s.id }}', 'heart')">
+                  <span>❤️</span> <span class="rx-num">{{ s.reactions.heart if (s.reactions and s.reactions.heart) else 0 }}</span>
+                </button>
+                <button type="button" class="rx-pill rx-fire {% if user_reactions and user_reactions.get(s.id) == 'fire' %}active{% endif %}" onclick="reactToStory('{{ s.id }}', 'fire')">
+                  <span>🔥</span> <span class="rx-num">{{ s.reactions.fire if (s.reactions and s.reactions.fire) else 0 }}</span>
+                </button>
+                <button type="button" class="rx-pill rx-salute {% if user_reactions and user_reactions.get(s.id) == 'salute' %}active{% endif %}" onclick="reactToStory('{{ s.id }}', 'salute')">
+                  <span>🫡</span> <span class="rx-num">{{ s.reactions.salute if (s.reactions and s.reactions.salute) else 0 }}</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY 13: GRAND FINALE LETTER (THE VINTAGE WAX SEAL PACKAGE) -->
+    <section class="finale-box" id="letter">
+      <div id="envelope-sealed">
+        <!-- Postage Stamps Row -->
+        <div class="stamps-row">
+          <div class="postage-stamp">🏫 Hema TS CS Lab · 2021</div>
+          <div class="postage-stamp">🛵 Designated Driver 100%</div>
+          <div class="postage-stamp">🏖️ Marina Beach 07:00 AM</div>
+          <div class="postage-stamp">⏳ Class 12 Grand Finale</div>
+        </div>
+
+        <div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">
+          💌 CONFIDENTIAL DISPATCH · FOR KAMLESHVAR ONLY
+        </div>
+
+        <h2 style="font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 800; color: var(--text-main); margin: 0.75rem 0 0.5rem; letter-spacing: -0.02em;">
+          One Last Thing.
+        </h2>
+        <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 580px; margin: 0 auto 1.5rem;">
+          A personal, unfiltered letter from Arvindhan to close out our school era.
+        </p>
+
+        <!-- Interactive Wax Seal Button -->
+        <div>
+          <button type="button" class="wax-seal-btn" onclick="openFinalLetter()" title="Click to break the wax seal &amp; open letter">
+            <span class="wax-seal-icon">⚜️</span>
+            <span class="wax-seal-label">Break Seal</span>
+          </button>
+        </div>
+        <p style="font-size: 0.84rem; color: var(--text-tertiary); margin-top: 0.5rem;">
+          🔏 Tap the wax seal to break the seal and read the letter
+        </p>
+      </div>
+
+      <!-- Grand Unfolded Letter Parchment -->
+      <div class="final-letter" id="envelope-opened">
+        <div class="letter-header-strip">
+          <div>
+            <div class="letter-meta-label">TO / RECIPIENT</div>
+            <div class="letter-meta-val">Kamleshvar · The Driver &amp; Self-Hosting Wizard 🛵💻</div>
+          </div>
+          <div>
+            <div class="letter-meta-label">FROM / SENDER</div>
+            <div class="letter-meta-val">Arvindhan · Permanent Passenger 🪑</div>
+          </div>
+          <div>
+            <div class="letter-meta-label">ERA &amp; DATE</div>
+            <div class="letter-meta-val">Class 11 to Class 12 Finale · 2026 ⏳</div>
+          </div>
+        </div>
+
+        <div class="story-body" style="font-size: 1.08rem; line-height: 1.85;">
+          <p>Kamleshvar,</p>
+
+          <p>If you told me back in Class 11 when we were sitting in Hema TS ma'am's CS class that I'd one day build an entire website dedicated to our friendship, I probably would have laughed.</p>
+
+          <p>Back then, you were just starting out with CS—asking questions, trying to wrap your head around how code worked, and figuring out the basics. I helped you take those first few steps. And watching you evolve from that beginner into someone who today literally self-hosts server clusters, builds homelabs, and solves complex tech setups on your own... that's easily one of the coolest things I've witnessed over these years.</p>
+
+          <p>Then came the late-night calls. How many times did one of our phone calls start with: <em>“Bro, just a quick 2-minute syllabus question...”</em> and then suddenly it's 2:30 AM, and we're talking about server architectures, complaining about exams, debating wild life theories, or just laughing at something utterly stupid? Those midnight study sessions weren't just exam prep; they were where our brotherhood got locked in.</p>
+
+          <p>And of course, the rides. Whether it was riding our cycles at 7:00 AM on Marina Beach on our very first official hangout, or cruising through Chennai traffic on the bike and scooty. You were always the designated driver handling every single turn, while I sat behind contributing zero navigation and 100% moral support. I wouldn't trade that passenger seat for anything in the world.</p>
+
+          <p>And now, here we are. Class 12 is coming to an end. It's bittersweet and a little surreal knowing there are only a few moments left of these school days. From organizing NextGen 26'1 together to late-night study crunches, we've built memories that will last a lifetime. Soon we'll both be moving on to colleges, new chapters, and different roads. But school life ending doesn't change a single thing between us. The late-night calls will keep happening. The tech debates won't stop. The rare badminton matches will still be chaotic. And whenever we're on a ride, you're still going to be the driver.</p>
+
+          <div class="letter-quote-card">
+            “You spent years in the driver’s seat steering through every road and midnight turn we ever took—while I sat behind contributing zero GPS and 100% moral support. Consider this archive Arvindhan’s way of finally taking the wheel. Happy Birthday, Kamleshvar!”
+          </div>
+
+          <p>Thank you for being genuine, unbiased, kind, and an irreplaceable brother.</p>
+        </div>
+
+        <div class="letter-signature-block">
+          <div>
+            <div style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.25rem;">Your permanent passenger &amp; brother forever,</div>
+            <div class="handwritten-sig">Arvindhan</div>
+            <div style="font-size: 0.82rem; color: var(--text-tertiary); margin-top: 0.35rem; font-style: italic;">
+              P.S. — Self-hosting is cool, but seriously, get some sleep before exams. 😉
+            </div>
+          </div>
+
+          <div class="letter-actions">
+            <button type="button" class="btn btn-solid" onclick="raiseBirthdayToast()">
+              🥂 Raise a Birthday Toast!
+            </button>
+            <button type="button" class="btn btn-solid" onclick="openA4Modal()" style="background: var(--tag-green-text);">
+              📄 Download / Print A4 Keepsake Card 📥
+            </button>
+            <button type="button" class="btn btn-subtle" onclick="SoundEngine.grandOpening(); triggerConfetti();">
+              🎵 Replay Grand Chime
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Minimalist Clean Footer with Admin Portal Link -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-copy">Built with pride &amp; zero driving skills by Arvindhan for Kamleshvar's Birthday</p>
+      <p class="footer-note">Class 11 → Class 12 &amp; Forever · A Random Corner of the Web · 2026</p>
+      <div style="margin-top: 1.25rem;">
+        <a href="/admin" class="btn btn-subtle" style="font-size: 0.78rem; padding: 0.35rem 0.85rem;">⚙️ Admin Studio</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- A4 KEEPSAKE CARD PREVIEW & PRINT MODAL -->
+  <div id="a4-modal" class="a4-modal" onclick="handleA4BackdropClick(event)">
+    <div class="a4-modal-dialog">
+      <!-- Toolbar -->
+      <div class="a4-toolbar">
+        <div style="display: flex; align-items: center; gap: 0.6rem;">
+          <span style="font-size: 1.35rem;">📄</span>
+          <div>
+            <div style="font-weight: 800; font-size: 0.98rem; color: var(--text-main);">A4 Printable Birthday Keepsake Card</div>
+            <div style="font-size: 0.78rem; color: var(--text-muted);">Formatted to fit on a single A4 page with dynamic scannable QR Code</div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 0.5rem;">
+          <button type="button" class="btn btn-solid" onclick="printA4Card()" style="padding: 0.5rem 1.1rem; font-size: 0.85rem;">
+            🖨️ Print / Save as PDF (A4)
+          </button>
+          <button type="button" class="btn btn-subtle" onclick="closeA4Modal()" style="padding: 0.5rem 0.85rem; font-size: 0.85rem;">
+            ✕ Close
+          </button>
+        </div>
+      </div>
+
+      <!-- The A4 Sheet Document (Both on-screen and print target) -->
+      <div id="a4-printable-sheet" class="a4-card-sheet">
+        <div class="a4-inner-border">
+          <!-- Header -->
+          <div class="a4-header-top">
+            <div class="a4-dispatch-tag">✦ OFFICIAL ARCHIVAL KEEPSAKE · CLASS 11 TO CLASS 12 FINALE · 2021-2026 ✦</div>
+            <h1 class="a4-title">HAPPY BIRTHDAY, KAMLESHVAR! 🎂</h1>
+            <div class="a4-sub">The Passenger Chronicles · Curated with Pride &amp; Brotherhood by Arvindhan</div>
+          </div>
+
+          <!-- 6-Photo Curated Archival Polaroid Montage -->
+          <div class="a4-gallery-grid">
+            <div class="a4-mini-polaroid">
+              <img src="{{ url_for('static', filename='photos/nextgen_2026_event_organizers.jpg') }}" alt="NextGen '26">
+              <div class="a4-mini-caption">🎤 NextGen '26 Organizers</div>
+            </div>
+            <div class="a4-mini-polaroid">
+              <img src="{{ url_for('static', filename='photos/marina_beach_cycling_first_hangout.jpg') }}" alt="Marina Beach">
+              <div class="a4-mini-caption">🏖️ Marina Beach 7 AM Ride</div>
+            </div>
+            <div class="a4-mini-polaroid">
+              <img src="{{ url_for('static', filename='photos/hema_ts_cs_teacher_group.jpg') }}" alt="Hema TS CS Class">
+              <div class="a4-mini-caption">💻 Hema TS CS Lab Origin</div>
+            </div>
+            <div class="a4-mini-polaroid">
+              <img src="{{ url_for('static', filename='photos/michael_movie_theatre.jpg') }}" alt="Michael Movie">
+              <div class="a4-mini-caption">🎬 Michael Movie Night</div>
+            </div>
+            <div class="a4-mini-polaroid">
+              <img src="{{ url_for('static', filename='photos/kamlesh_cycle_sunny.jpg') }}" alt="Cycle Ride">
+              <div class="a4-mini-caption">🚲 Sunny Day &amp; Cycle</div>
+            </div>
+            <div class="a4-mini-polaroid">
+              <img src="{{ url_for('static', filename='photos/classmates_group_photo.jpg') }}" alt="Classmates">
+              <div class="a4-mini-caption">🏫 Classmates with Kamlesh</div>
+            </div>
+          </div>
+
+          <!-- Key Metrics Bar -->
+          <div class="a4-stats-bar">
+            <div class="a4-stat-item">
+              <div class="a4-stat-num">Beginner → Homelab Pro</div>
+              <div class="a4-stat-lbl">CS Trajectory (+1000%)</div>
+            </div>
+            <div class="a4-stat-item">
+              <div class="a4-stat-num">100% : 0%</div>
+              <div class="a4-stat-lbl">Driver : Passenger Ratio</div>
+            </div>
+            <div class="a4-stat-item">
+              <div class="a4-stat-num">2+ Hours Midnight</div>
+              <div class="a4-stat-lbl">Syllabus Phone Calls</div>
+            </div>
+            <div class="a4-stat-item">
+              <div class="a4-stat-num">Brothers Forever</div>
+              <div class="a4-stat-lbl">Friendship Status</div>
+            </div>
+          </div>
+
+          <!-- 4-Chapter Archival Story Grid -->
+          <div class="a4-story-grid">
+            <div class="a4-story-box">
+              <div class="a4-story-tag">1. The CS Origin in Hema TS Lab</div>
+              <div class="a4-story-txt">Sitting in the CS lab in Class 11, figuring out code basics together. Watching you turn from a beginner into a wizard who now self-hosts full servers is unforgettable.</div>
+            </div>
+            <div class="a4-story-box">
+              <div class="a4-story-tag">2. Midnight Syllabus &amp; Tech Calls</div>
+              <div class="a4-story-txt">The phone calls that started as quick 2-minute syllabus questions and turned into 2:30 AM deep life philosophies, server debates, and late-night exam study crunches.</div>
+            </div>
+            <div class="a4-story-box">
+              <div class="a4-story-tag">3. Marina Beach &amp; The Passenger Seat</div>
+              <div class="a4-story-txt">From 7:00 AM sunrise cycling on Marina Beach to cruising across Chennai with you steering every single turn while I sat behind contributing 100% moral support.</div>
+            </div>
+            <div class="a4-story-box">
+              <div class="a4-story-tag">4. NextGen 26'1 &amp; Class 12 Finale</div>
+              <div class="a4-story-txt">Organizing NextGen 26'1 backstage like absolute legends. As Class 12 wraps up with only a few moments left, our school chapter ends but our brotherhood is locked in forever.</div>
+            </div>
+          </div>
+
+          <!-- The Condensed Grand Letter -->
+          <div class="a4-letter-body">
+            <p><strong>Dear Kamleshvar,</strong> From Class 11 CS lab basics to rare chaotic badminton matches, hours of midnight calls, and running flagship school events together, these years have built memories that will last a lifetime. Soon we will both move on to colleges and different roads, but school life ending does not change a single thing between us. The late-night calls will keep happening, the tech debates will continue, and whenever we are on a ride, you will always be the driver.</p>
+
+            <div class="a4-punchline-box">
+              “You spent years in the driver’s seat steering through every road and midnight turn we ever took—while I sat behind contributing zero GPS and 100% moral support. Consider this archive Arvindhan’s way of finally taking the wheel. Happy Birthday, Kamleshvar!”
+            </div>
+          </div>
+
+          <!-- Footer & Signature with Dynamic Scannable QR Code -->
+          <div class="a4-footer-sign">
+            <div>
+              <div style="font-size: 7.5pt; color: #6b5847;">Permanent Passenger &amp; Brother Forever,</div>
+              <div class="a4-sig-hand">Arvindhan</div>
+            </div>
+
+            <!-- Dynamic Scannable QR Code Box -->
+            <div class="a4-qr-block">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data={{ qr_code_url|urlencode }}" alt="Scan to Visit Birthday Archive" class="a4-qr-img">
+              <div class="a4-qr-caption">
+                <span class="a4-qr-badge">📲 SCAN TO VISIT</span>
+                <span class="a4-qr-url">{{ qr_code_url }}</span>
+              </div>
+            </div>
+
+            <div style="text-align: right;">
+              <div style="font-family: 'Space Mono', monospace; font-size: 7pt; color: #b45309; font-weight: 700;">⚜️ VERIFIED LIFELONG ARCHIVE</div>
+              <div style="font-size: 6.8pt; color: #9e8975;">Class 11 → Class 12 &amp; Beyond · 2026</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Photo Zoom Lightbox Modal -->
+  <div id="photo-modal" class="lightbox-modal" onclick="closeLightbox()">
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="Zoomed View">
+      <p id="lightbox-caption" class="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       JAVASCRIPT ENGINE: AUDIO, CURSOR, CONFETTI, DRAFTS & API
+       ========================================================= -->
+  <script>
+    /* =========================================================
+       1. SYNTHESIZER SOUND ENGINE (WEB AUDIO API)
+       ========================================================= */
+    let audioCtx = null;
+    let soundEnabled = true;
+
+    function getAudioCtx() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function toggleSound() {
+      soundEnabled = !soundEnabled;
+      const icon = document.getElementById('sound-icon');
+      const label = document.getElementById('sound-label');
+      if (soundEnabled) {
+        icon.textContent = '🔊';
+        label.textContent = 'Sound On';
+        SoundEngine.pop();
+      } else {
+        icon.textContent = '🔇';
+        label.textContent = 'Muted';
+      }
+    }
+
+    const SoundEngine = {
+      pop: (freq = 480, dur = 0.08) => {
+        if (!soundEnabled) return;
+        try {
+          const ctx = getAudioCtx();
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(freq * 1.5, ctx.currentTime + dur);
+          gain.gain.setValueAtTime(0.06, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start();
+          osc.stop(ctx.currentTime + dur);
+        } catch (e) {}
+      },
+
+      flip: () => {
+        if (!soundEnabled) return;
+        try {
+          const ctx = getAudioCtx();
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(360, ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(140, ctx.currentTime + 0.12);
+          gain.gain.setValueAtTime(0.08, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start();
+          osc.stop(ctx.currentTime + 0.12);
+        } catch (e) {}
+      },
+
+      hover: () => {
+        if (!soundEnabled) return;
+        try {
+          const ctx = getAudioCtx();
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(320, ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(420, ctx.currentTime + 0.03);
+          gain.gain.setValueAtTime(0.02, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.03);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start();
+          osc.stop(ctx.currentTime + 0.03);
+        } catch (e) {}
+      },
+
+      camera: () => {
+        if (!soundEnabled) return;
+        try {
+          const ctx = getAudioCtx();
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'square';
+          osc.frequency.setValueAtTime(800, ctx.currentTime);
+          osc.frequency.setValueAtTime(400, ctx.currentTime + 0.04);
+          gain.gain.setValueAtTime(0.06, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start();
+          osc.stop(ctx.currentTime + 0.12);
+        } catch (e) {}
+      },
+
+      puff: () => {
+        if (!soundEnabled) return;
+        try {
+          const ctx = getAudioCtx();
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(160, ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(30, ctx.currentTime + 0.18);
+          gain.gain.setValueAtTime(0.06, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.18);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start();
+          osc.stop(ctx.currentTime + 0.18);
+        } catch (e) {}
+      },
+
+      sparkle: () => {
+        if (!soundEnabled) return;
+        try {
+          const ctx = getAudioCtx();
+          const notes = [523.25, 659.25, 783.99, 1046.50];
+          notes.forEach((freq, i) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.04);
+            gain.gain.setValueAtTime(0.04, ctx.currentTime + i * 0.04);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i * 0.04 + 0.15);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(ctx.currentTime + i * 0.04);
+            osc.stop(ctx.currentTime + i * 0.04 + 0.15);
+          });
+        } catch (e) {}
+      },
+
+      chime: () => {
+        if (!soundEnabled) return;
+        try {
+          const ctx = getAudioCtx();
+          const notes = [440, 554.37, 659.25, 880];
+          notes.forEach((freq, idx) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.06);
+            gain.gain.setValueAtTime(0.08, ctx.currentTime + idx * 0.06);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + idx * 0.06 + 0.35);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(ctx.currentTime + idx * 0.06);
+            osc.stop(ctx.currentTime + idx * 0.06 + 0.35);
+          });
+        } catch (e) {}
+      },
+
+      toast: () => {
+        if (!soundEnabled) return;
+        try {
+          const ctx = getAudioCtx();
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(2600, ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(2200, ctx.currentTime + 0.6);
+          gain.gain.setValueAtTime(0.09, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.6);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start();
+          osc.stop(ctx.currentTime + 0.6);
+        } catch (e) {}
+      },
+
+      letter: () => {
+        if (!soundEnabled) return;
+        try {
+          const ctx = getAudioCtx();
+          const notes = [329.63, 392.00, 493.88, 587.33, 659.25, 783.99];
+          notes.forEach((f, i) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(f, ctx.currentTime + i * 0.07);
+            gain.gain.setValueAtTime(0.06, ctx.currentTime + i * 0.07);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i * 0.07 + 0.4);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(ctx.currentTime + i * 0.07);
+            osc.stop(ctx.currentTime + i * 0.07 + 0.4);
+          });
+        } catch (e) {}
+      },
+
+      grandOpening: () => {
+        if (!soundEnabled) return;
+        try {
+          const ctx = getAudioCtx();
+          const notes = [261.63, 329.63, 392.00, 523.25, 659.25, 783.99, 1046.50, 1318.51];
+          notes.forEach((f, i) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(f, ctx.currentTime + i * 0.07);
+            gain.gain.setValueAtTime(0.08, ctx.currentTime + i * 0.07);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i * 0.07 + 0.5);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(ctx.currentTime + i * 0.07);
+            osc.stop(ctx.currentTime + i * 0.07 + 0.5);
+          });
+        } catch (e) {}
+      }
+    };
+
+    /* =========================================================
+       2. CUSTOM CURSOR ENGINE
+       ========================================================= */
+    const cursorDot = document.getElementById('cursor-dot');
+    const cursorRing = document.getElementById('cursor-ring');
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let ringX = mouseX;
+    let ringY = mouseY;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (cursorDot) {
+        cursorDot.style.left = `${mouseX}px`;
+        cursorDot.style.top = `${mouseY}px`;
+      }
+    });
+
+    function updateCursorRing() {
+      ringX += (mouseX - ringX) * 0.18;
+      ringY += (mouseY - ringY) * 0.18;
+      if (cursorRing) {
+        cursorRing.style.left = `${ringX}px`;
+        cursorRing.style.top = `${ringY}px`;
+      }
+      requestAnimationFrame(updateCursorRing);
+    }
+    updateCursorRing();
+
+    document.querySelectorAll('a, button, input, textarea, .candle-unit, .interactive-tag, .polaroid-card, .calendar-card').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        if (cursorRing) {
+          cursorRing.style.width = '52px';
+          cursorRing.style.height = '52px';
+          cursorRing.style.backgroundColor = 'rgba(180, 83, 9, 0.12)';
+          cursorRing.style.borderColor = 'var(--accent)';
+        }
+        SoundEngine.hover();
+      });
+      el.addEventListener('mouseleave', () => {
+        if (cursorRing) {
+          cursorRing.style.width = '34px';
+          cursorRing.style.height = '34px';
+          cursorRing.style.backgroundColor = 'transparent';
+          cursorRing.style.borderColor = 'var(--accent)';
+        }
+      });
+    });
+
+    /* =========================================================
+       3. CONFETTI CANNON ENGINE
+       ========================================================= */
+    function triggerConfetti(originX = 0.5, originY = 0.4) {
+      const colors = ['#b45309', '#f59e0b', '#10b981', '#ef4444', '#3b82f6', '#8b5cf6', '#ec4899'];
+      const totalPieces = 60;
+      for (let i = 0; i < totalPieces; i++) {
+        const piece = document.createElement('div');
+        piece.style.position = 'fixed';
+        piece.style.left = `${originX * 100}vw`;
+        piece.style.top = `${originY * 100}vh`;
+        piece.style.width = `${Math.random() * 8 + 6}px`;
+        piece.style.height = `${Math.random() * 10 + 6}px`;
+        piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+        piece.style.pointerEvents = 'none';
+        piece.style.zIndex = '999999';
+        document.body.appendChild(piece);
+
+        const angle = Math.random() * Math.PI * 2;
+        const velocity = Math.random() * 450 + 200;
+        const vx = Math.cos(angle) * velocity;
+        const vy = Math.sin(angle) * velocity - 150;
+        const rotSpeed = (Math.random() - 0.5) * 720;
+        const startTime = performance.now();
+
+        function animatePiece(currentTime) {
+          const elapsed = (currentTime - startTime) / 1000;
+          if (elapsed > 1.6) {
+            piece.remove();
+            return;
+          }
+          const x = vx * elapsed;
+          const y = vy * elapsed + 0.5 * 980 * elapsed * elapsed;
+          const opacity = Math.max(0, 1 - elapsed / 1.6);
+          piece.style.transform = `translate(${x}px, ${y}px) rotate(${rotSpeed * elapsed}deg)`;
+          piece.style.opacity = opacity;
+          requestAnimationFrame(animatePiece);
+        }
+        requestAnimationFrame(animatePiece);
+      }
+    }
+
+    /* =========================================================
+       4. INTERACTIVE BIRTHDAY CALENDAR ANIMATION
+       ========================================================= */
+    let calendarStateIndex = 0;
+    const calendarStates = [
+      {
+        month: 'SEPTEMBER',
+        day: '02',
+        label: 'BIRTHDAY EDITION 🎂',
+        footer: 'Tap to turn the page',
+        toast: '📅 September 02 · Official Birthday of Kamleshvar! 🎂🎉'
+      },
+      {
+        month: 'CLASS 11 ERA',
+        day: '2021',
+        label: 'CS LAB ORIGIN 💻',
+        footer: 'Hema TS CS Class · Tap again',
+        toast: '🏫 Class 11 CS Lab · Where our coding journey & friendship began!'
+      },
+      {
+        month: 'GRAND FINALE',
+        day: '2026',
+        label: 'BROTHERS FOREVER 🥂',
+        footer: 'Class 12 to Eternity · Tap again',
+        toast: '🛵 The Passenger Chronicles · 5 Years of Brotherhood & Beyond!'
+      }
+    ];
+
+    function flipCalendarCard() {
+      const card = document.getElementById('birthday-calendar-card');
+      card.classList.remove('flipping');
+      void card.offsetWidth; // Trigger reflow
+      card.classList.add('flipping');
+
+      SoundEngine.flip();
+      triggerConfetti(0.5, 0.35);
+
+      setTimeout(() => {
+        calendarStateIndex = (calendarStateIndex + 1) % calendarStates.length;
+        const cur = calendarStates[calendarStateIndex];
+        document.getElementById('cal-month-text').textContent = cur.month;
+        document.getElementById('cal-day-num').textContent = cur.day;
+        document.getElementById('cal-day-label').textContent = cur.label;
+        document.getElementById('cal-footer-text').textContent = cur.footer;
+        document.getElementById('cal-status-toast').textContent = cur.toast;
+      }, 300);
+    }
+
+    /* =========================================================
+       5. INTERACTIVE CANDLE BLOWOUT & SMOKE
+       ========================================================= */
+    let blownCount = 0;
+    function blowCandle(el, wish) {
+      if (!el.classList.contains('blown')) {
+        el.classList.add('blown');
+        blownCount++;
+        SoundEngine.puff();
+        triggerConfetti(0.5, 0.45);
+        const chip = document.getElementById('candle-wish-chip');
+        chip.textContent = `Wish Unlocked: “${wish}” ✨`;
+        if (blownCount === 4) {
+          setTimeout(() => {
+            SoundEngine.grandOpening();
+            triggerConfetti(0.3, 0.3);
+            triggerConfetti(0.7, 0.3);
+            chip.innerHTML = '🎉 All 4 Wishes Sent! Happy Birthday, Kamleshvar!';
+          }, 350);
+        }
+      }
+    }
+
+    function relightCandles() {
+      document.querySelectorAll('.candle-unit').forEach(c => c.classList.remove('blown'));
+      blownCount = 0;
+      document.getElementById('candle-wish-chip').textContent = 'All candles relit! Click any flame to blow it out.';
+      SoundEngine.sparkle();
+    }
+
+    /* =========================================================
+       6. INTERACTIVE TAG CLOUD
+       ========================================================= */
+    function showTagInfo(name, desc) {
+      const toast = document.getElementById('tag-toast-display');
+      toast.innerHTML = `<strong>${name}:</strong> ${desc}`;
+      SoundEngine.pop(520, 0.08);
+    }
+
+    /* =========================================================
+       7. WISHBOOK STUDIO, DRAFT ENGINE & AVATAR PICKER
+       ========================================================= */
+    let currentMediaFile = null;
+    let selectedAvatar = '🎂';
+
+    function pickAvatar(btn, emoji) {
+      document.querySelectorAll('.avatar-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      selectedAvatar = emoji;
+      document.getElementById('story-avatar-val').value = emoji;
+      document.getElementById('prev-avatar').textContent = emoji;
+      SoundEngine.pop(480, 0.08);
+      saveDraft();
+    }
+
+    function insertPrompt(text) {
+      const textarea = document.getElementById('story-text-input');
+      if (!textarea.value.startsWith(text)) {
+        textarea.value = text + textarea.value;
+      }
+      textarea.focus();
+      updateLivePreview();
+      SoundEngine.pop(420, 0.06);
+    }
+
+    function handleFileSelect(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      currentMediaFile = file;
+      const previewContainer = document.getElementById('media-preview-container');
+      const img = document.getElementById('image-preview');
+      const vid = document.getElementById('video-preview');
+      const livePrevContainer = document.getElementById('prev-media-container');
+      const liveImg = document.getElementById('prev-img');
+      const liveVid = document.getElementById('prev-video');
+
+      const url = URL.createObjectURL(file);
+      if (file.type.startsWith('image/')) {
+        img.src = url;
+        img.style.display = 'block';
+        vid.style.display = 'none';
+        liveImg.src = url;
+        liveImg.style.display = 'block';
+        liveVid.style.display = 'none';
+      } else if (file.type.startsWith('video/')) {
+        vid.src = url;
+        vid.style.display = 'block';
+        img.style.display = 'none';
+        liveVid.src = url;
+        liveVid.style.display = 'block';
+        liveImg.style.display = 'none';
+      }
+
+      previewContainer.style.display = 'block';
+      livePrevContainer.style.display = 'flex';
+      SoundEngine.pop(560, 0.12);
+    }
+
+    function removeSelectedMedia() {
+      currentMediaFile = null;
+      document.getElementById('media-file-input').value = '';
+      document.getElementById('media-preview-container').style.display = 'none';
+      document.getElementById('prev-media-container').style.display = 'none';
+      document.getElementById('image-preview').src = '';
+      document.getElementById('video-preview').src = '';
+      SoundEngine.pop(380, 0.08);
+    }
+
+    function updateLivePreview() {
+      const author = document.getElementById('story-author').value.trim();
+      const role = document.getElementById('story-role').value.trim();
+      const title = document.getElementById('story-title-input').value.trim();
+      const text = document.getElementById('story-text-input').value;
+
+      document.getElementById('prev-author').textContent = author || 'Your Name';
+      document.getElementById('prev-role').textContent = role || 'Friend';
+      
+      const prevTitle = document.getElementById('prev-title');
+      if (title) {
+        prevTitle.textContent = title;
+        prevTitle.style.display = 'block';
+      } else {
+        prevTitle.style.display = 'none';
+      }
+
+      const prevText = document.getElementById('prev-text');
+      if (text.trim()) {
+        prevText.textContent = text;
+        prevText.style.fontStyle = 'normal';
+        prevText.style.color = 'var(--text-main)';
+      } else {
+        prevText.textContent = 'Your story will appear here as you type...';
+        prevText.style.fontStyle = 'italic';
+        prevText.style.color = 'var(--text-tertiary)';
+      }
+
+      document.getElementById('char-count').textContent = `${text.length} characters`;
+      saveDraft();
+    }
+
+    function saveDraft() {
+      const draft = {
+        author: document.getElementById('story-author').value,
+        role: document.getElementById('story-role').value,
+        title: document.getElementById('story-title-input').value,
+        text: document.getElementById('story-text-input').value,
+        avatar: selectedAvatar
+      };
+      localStorage.setItem('kamlesh_story_draft', JSON.stringify(draft));
+      const status = document.getElementById('draft-status');
+      if (status) status.textContent = 'Auto-saved 💾';
+    }
+
+    function loadDraft() {
+      try {
+        const saved = localStorage.getItem('kamlesh_story_draft');
+        if (saved) {
+          const d = JSON.parse(saved);
+          if (d.author) document.getElementById('story-author').value = d.author;
+          if (d.role) document.getElementById('story-role').value = d.role;
+          if (d.title) document.getElementById('story-title-input').value = d.title;
+          if (d.text) document.getElementById('story-text-input').value = d.text;
+          if (d.avatar) {
+            selectedAvatar = d.avatar;
+            document.querySelectorAll('.avatar-btn').forEach(btn => {
+              if (btn.textContent.trim() === d.avatar) {
+                document.querySelectorAll('.avatar-btn').forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+              }
+            });
+            document.getElementById('story-avatar-val').value = d.avatar;
+            document.getElementById('prev-avatar').textContent = d.avatar;
+          }
+          updateLivePreview();
+        }
+      } catch (e) {}
+    }
+
+    async function submitStory(e) {
+      e.preventDefault();
+      const submitBtn = document.getElementById('submit-story-btn');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Publishing Story... ⏳';
+
+      const formData = new FormData(document.getElementById('story-form'));
+      formData.set('avatar', selectedAvatar);
+
+      try {
+        const res = await fetch('/api/stories', {
+          method: 'POST',
+          body: formData
+        });
+        const data = await res.json();
+        if (data.success && data.story) {
+          renderNewStoryCard(data.story);
+          document.getElementById('story-form').reset();
+          removeSelectedMedia();
+          selectedAvatar = '🎂';
+          document.querySelectorAll('.avatar-btn').forEach(b => b.classList.remove('selected'));
+          document.querySelector('.avatar-btn').classList.add('selected');
+          localStorage.removeItem('kamlesh_story_draft');
+          updateLivePreview();
+
+          SoundEngine.chime();
+          triggerConfetti(0.5, 0.5);
+          alert('✨ Your story has been permanently added to Kamleshvar\'s birthday archive!');
+        } else {
+          alert(data.error || 'Failed to submit story. Please try again.');
+        }
+      } catch (err) {
+        alert('Error submitting story. Please check your internet connection.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Post Story to Archive ✨';
+      }
+    }
+
+    function renderNewStoryCard(story) {
+      const feed = document.getElementById('stories-feed');
+      const card = document.createElement('div');
+      card.className = 'note-card';
+      card.id = story.id;
+
+      let mediaHtml = '';
+      if (story.media_url) {
+        if (story.media_type === 'image') {
+          mediaHtml = `
+            <div class="story-card-attachment">
+              <img src="${story.media_url}" alt="Attachment" onclick="openLightbox('${story.media_url}', 'Photo shared by ${escapeHtml(story.author)}')">
+            </div>`;
+        } else if (story.media_type === 'video') {
+          mediaHtml = `
+            <div class="story-card-attachment">
+              <video src="${story.media_url}" controls playsinline preload="metadata"></video>
+            </div>`;
+        }
+      }
+
+      card.innerHTML = `
+        <div class="note-head">
+          <div class="note-avatar">${story.avatar || '🎂'}</div>
+          <div>
+            <div class="note-author">
+              <span>${escapeHtml(story.author)}</span>
+              ${story.role ? `<span class="note-role-tag">${escapeHtml(story.role)}</span>` : ''}
+            </div>
+            <div class="note-time">${story.created_at || 'Just now'}</div>
+          </div>
+        </div>
+        ${story.title ? `<div class="note-title">${escapeHtml(story.title)}</div>` : ''}
+        <p class="note-text">${escapeHtml(story.text)}</p>
+        ${mediaHtml}
+        <div class="note-footer">
+          <span style="font-size: 0.75rem; color: var(--text-tertiary); font-family: var(--font-mono);">
+            Archived Memory
+          </span>
+          <div class="reactions-group">
+            <button type="button" class="rx-pill rx-heart" onclick="reactToStory('${story.id}', 'heart')">
+              <span>❤️</span> <span class="rx-num">1</span>
+            </button>
+            <button type="button" class="rx-pill rx-fire" onclick="reactToStory('${story.id}', 'fire')">
+              <span>🔥</span> <span class="rx-num">0</span>
+            </button>
+            <button type="button" class="rx-pill rx-salute" onclick="reactToStory('${story.id}', 'salute')">
+              <span>🫡</span> <span class="rx-num">0</span>
+            </button>
+          </div>
+        </div>
+      `;
+      feed.prepend(card);
+    }
+
+    async function reactToStory(id, rxType) {
+      try {
+        const res = await fetch(`/api/stories/${id}/react`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ type: rxType })
+        });
+        const data = await res.json();
+        if (data.success) {
+          const card = document.getElementById(id);
+          if (card) {
+            const btn = card.querySelector(`.rx-${rxType}`);
+            const numSpan = btn.querySelector('.rx-num');
+            numSpan.textContent = data.reactions ? data.reactions[rxType] : 0;
+            if (data.active) {
+              btn.classList.add('active');
+              SoundEngine.pop(540, 0.08);
+              triggerConfetti(0.5, 0.7);
+            } else {
+              btn.classList.remove('active');
+              SoundEngine.pop(320, 0.06);
+            }
+          }
+        }
+      } catch (e) {}
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    /* =========================================================
+       8. FINALE LETTER REVEAL & ACTIONS
+       ========================================================= */
+    function openFinalLetter() {
+      const sealed = document.getElementById('envelope-sealed');
+      const opened = document.getElementById('envelope-opened');
+      if (sealed) sealed.style.display = 'none';
+      if (opened) {
+        opened.style.display = 'block';
+        opened.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      try {
+        SoundEngine.grandOpening();
+      } catch (e) {
+        console.error(e);
+      }
+      triggerConfetti();
+      setTimeout(triggerConfetti, 250);
+      setTimeout(triggerConfetti, 550);
+    }
+
+    function raiseBirthdayToast() {
+      try {
+        SoundEngine.toast();
+      } catch (e) {}
+      triggerConfetti();
+      alert("🥂 To Kamleshvar! May this year bring endless success, server uptime, and unforgettable rides!");
+    }
+
+    /* =========================================================
+       9. PHOTO LIGHTBOX MODAL
+       ========================================================= */
+    function openLightbox(src, caption) {
+      const modal = document.getElementById('photo-modal');
+      const img = document.getElementById('lightbox-img');
+      const cap = document.getElementById('lightbox-caption');
+      img.src = src;
+      cap.textContent = caption;
+      modal.classList.add('active');
+      SoundEngine.camera();
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('photo-modal');
+      modal.classList.remove('active');
+      SoundEngine.pop(380, 0.08);
+    }
+
+    /* =========================================================
+       10. A4 KEEPSAKE CARD MODAL & PRINT HANDLERS
+       ========================================================= */
+    function openA4Modal() {
+      const modal = document.getElementById('a4-modal');
+      if (modal) {
+        modal.classList.add('active');
+        SoundEngine.grandOpening();
+        triggerConfetti();
+      }
+    }
+
+    function closeA4Modal() {
+      const modal = document.getElementById('a4-modal');
+      if (modal) {
+        modal.classList.remove('active');
+        SoundEngine.pop(380, 0.08);
+      }
+    }
+
+    function handleA4BackdropClick(e) {
+      if (e.target.id === 'a4-modal') {
+        closeA4Modal();
+      }
+    }
+
+    function printA4Card() {
+      try {
+        SoundEngine.camera();
+      } catch (e) {}
+      window.print();
+    }
+
+    loadDraft();
+  </script>
+</body>
+</html>
