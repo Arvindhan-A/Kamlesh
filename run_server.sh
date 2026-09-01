@@ -6,7 +6,7 @@
 
 set -e
 
-PORT="${PORT:-2023}"
+PORT="${PORT:-1051}"
 HOST="${HOST:-0.0.0.0}"
 WORKERS="${WORKERS:-2}"
 

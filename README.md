@@ -38,7 +38,7 @@ source .venv/bin/activate
 # Install dependencies
 pip install -r requirements.txt
 
-# Launch server on single port (0.0.0.0:5000)
+# Launch server on single port (0.0.0.0:1051)
 ./run_server.sh
 ```
 
@@ -46,7 +46,7 @@ pip install -r requirements.txt
 
 You can specify a custom port or host:
 ```bash
-PORT=8080 HOST=0.0.0.0 ./run_server.sh
+PORT=1051 HOST=0.0.0.0 ./run_server.sh
 ```
 
 ### 3. Systemd Auto-Start on Boot (Raspberry Pi 5)

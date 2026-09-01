@@ -8,7 +8,7 @@ WorkingDirectory=/home/arv/PycharmProjects/Kamlesh
 ExecStart=/home/arv/PycharmProjects/Kamlesh/run_server.sh
 Restart=always
 RestartSec=5
-Environment=PORT=5000
+Environment=PORT=1051
 Environment=HOST=0.0.0.0
 
 [Install]
